@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<title>QPL Lab Management System beta 1.0-20160326</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="CSS/basic.css">
+	<script src="JS/basic.js" type="text/javascript"></script>
+</head>
+<body>
+
+<header>
+	<h1>器材管理系统</h1>
+	<p>南京大学量子光学实验室</p>
+</header>
+
+<nav>
+	<ul>
+		<li><a href="index.html">首页</a></li>
+		<li><a href="query.html">查询</a></li>
+		<li><a href="insert.html" class="active-page">添加</a></li>
+	</ul>
+</nav>
+
+<!-----------------------------------------查询的第一个页面---------------------------------------------->
+<aside>
+	<div class="aside" id="aside-2">
+		<button class="btn" onclick="">大型仪器</button></br>
+		<button class="btn" onclick="">光学元件</button></br>
+		<button class="btn" onclick="">光机</button></br>
+		<button class="btn" onclick="">电子元件</button></br>
+	</div>
+</aside>
+
+
+<!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
+<div class="section" id="section-3">
+<!-- <div class="insert-div" id="table-1"> -->
+	<form>
+		<table class="insert-table" id="insert-table" border="1">
+			<tr>
+				<th>序号</th><th>类型</th><th>名称</th><th>详细名称</th><th>型号</th><th>品牌</th><th>购买人</th><th>个数</th><th>购买时间</th><th>保修年限</th>
+			</tr>
+
+			<script type="text/javascript">
+			//var j = document.getElementById("inset-table").rows.length;
+
+				var newTba,newTbb;
+				newTba = document.getElementById("insert-table");
+				newTbb =  newTba.insertRow(1);
+				for (var i = 1; i < 9; i++) {
+					newTbb.insertCell(0).innerHTML = "0"+ i;
+					newTbb.insertCell(1).innerHTML = '<select name="categeroy"><option value="大型仪器">大型仪器</option><option value="光学元件">光学元件</option><option value="电子元件">电子元件</option><option value="光机">光机</option>';
+					newTbb.insertCell(2).innerHTML = "<input type='text' name='tool-name' size='13'/>";
+					newTbb.insertCell(3).innerHTML = "<input type='text' name='detile'/>";
+					newTbb.insertCell(4).innerHTML = "<input type='text' name='ids' size='16'/>";
+					newTbb.insertCell(5).innerHTML = "<input type='text' name='brand' size='18'/>";
+					newTbb.insertCell(6).innerHTML = "<input type='text' name='owner' size='8'/>";
+					newTbb.insertCell(7).innerHTML = "<input type='number' name='number' style='width:72px;'/>";
+					newTbb.insertCell(8).innerHTML = "<input type='date' name='time'/>";
+					newTbb.insertCell(9).innerHTML = "<input type='number' name='time-num' style='width:72px;'/>年";
+					newTbb =  newTba.insertRow(i+1);
+				}
+			</script>
+		</table>
+		<div class="submit">
+			<input class="btn" type="reset"></input>
+			<input class="btn" type="submit"></input>
+		</div>
+		
+	</form>
+<!-- </div> -->
+</div>
+<!-- <section> -->
+</body>
+</html>
