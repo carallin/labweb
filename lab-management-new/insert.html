@@ -4,6 +4,8 @@
 	<title>QPL Lab Management System beta 1.0-20160326</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="CSS/basic.css">
+	<script src="JS/jquery-1.12.2.min.js" type="text/javascript"></script>
+	<script src="JS/jquery.form.js" type="text/javascript"></script>
 	<script src="JS/basic.js" type="text/javascript"></script>
 </head>
 <body>
@@ -43,21 +45,20 @@
 
 			<script type="text/javascript">
 			//var j = document.getElementById("inset-table").rows.length;
-
 				var newTba,newTbb;
 				newTba = document.getElementById("insert-table");
 				newTbb =  newTba.insertRow(1);
 				for (var i = 1; i < 9; i++) {
 					newTbb.insertCell(0).innerHTML = "0"+ i;
-					newTbb.insertCell(1).innerHTML = '<select name="categeroy"><option value="大型仪器">大型仪器</option><option value="光学元件">光学元件</option><option value="电子元件">电子元件</option><option value="光机">光机</option>';
+					newTbb.insertCell(1).innerHTML = '<select name="category"><option value="大型仪器">大型仪器</option><option value="光学元件">光学元件</option><option value="电子元件">电子元件</option><option value="光机">光机</option>';
 					newTbb.insertCell(2).innerHTML = "<input type='text' name='tool-name' size='13'/>";
 					newTbb.insertCell(3).innerHTML = "<input type='text' name='detile'/>";
 					newTbb.insertCell(4).innerHTML = "<input type='text' name='ids' size='16'/>";
 					newTbb.insertCell(5).innerHTML = "<input type='text' name='brand' size='18'/>";
 					newTbb.insertCell(6).innerHTML = "<input type='text' name='owner' size='8'/>";
-					newTbb.insertCell(7).innerHTML = "<input type='number' name='number' style='width:72px;'/>";
+					newTbb.insertCell(7).innerHTML = "<input type='number' name='number' min='1' style='width:72px;'/>";
 					newTbb.insertCell(8).innerHTML = "<input type='date' name='time'/>";
-					newTbb.insertCell(9).innerHTML = "<input type='number' name='time-num' style='width:72px;'/>年";
+					newTbb.insertCell(9).innerHTML = "<input type='number' name='time-num' min='0' step='0.1' style='width:72px;'/>年";
 					newTbb =  newTba.insertRow(i+1);
 				}
 			</script>

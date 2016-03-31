@@ -42,7 +42,9 @@ aside {
 	position: fixed;
 /*	border: 1px solid blue;*/
 }
-
+aside h3 {
+	padding: 20px 10px 15px 35px;
+}
 .btn {
 	border: none;
 	border-radius: 12px;
@@ -76,7 +78,12 @@ aside {
 /*	width: 100%;*/
 	border: 2px solid purple;
 }
-
+.display {
+	padding: 8px;
+	background-color: #4CAF50;
+	color: white;
+	max-width: 85px;
+}
 .section-div {
 	overflow: hidden;
 }
@@ -86,23 +93,25 @@ aside {
 /*	width: 250px;*/
 	width: 40%;
 /*	height: 150px;*/
-	margin: 20px 20px;
+	margin: 10px 20px 30px 20px;
 	border: none;
 	border-radius: 10px;
 	float: left;
 }
 
-.divmin input{
+.divmin input[type="checkbox"]{
 	padding: 14px 16px;
 	margin: 10px;
 }
 
-.time input {
-	padding: 6px;
+.divmin input[type="number"] {
+	text-align: center;
+	padding: 8px 2px;
+	margin: 8px;
 }
 
 input[type="checkbox"] {
-display: none;
+	display: none;
 }
 
 input[type="checkbox"] + label {
@@ -110,7 +119,7 @@ input[type="checkbox"] + label {
 	background-color: #999;
 	color: white;
 	padding: 8px 14px;
-	margin: 10px 5px;
+	margin: 8px 5px;
 	border-radius: 12px;
 	position: relative;
 /*	width: 83px;*/
@@ -118,7 +127,7 @@ input[type="checkbox"] + label {
 }
 
 input[type="checkbox"] + label:hover  {
-	background: #FC8C1E;
+	background: #66cc66;
 }
 
 /*.lable + label:after {
@@ -137,17 +146,19 @@ input[type="checkbox"] + label:hover  {
 	display: block;
 }*/
 input[type="checkbox"]:checked + label {
-	background: #008C1E;
+	background: #4CAF50;
 }
 
 
 table {
 	border-collapse: collapse;
+	text-align: center;
 }
 table th {
 	padding: 10px;
 	background-color: #ddd;
 }
+
 
 .insert-table td input {
 /*	overflow-x: auto;*/
@@ -190,7 +201,7 @@ nav a:hover {
 }
 
 aside {
-	background-color: #f7f7f7;
+	background-color: #f8f8f8;
 }
 
 .btn {

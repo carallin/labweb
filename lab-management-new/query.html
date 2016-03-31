@@ -4,6 +4,8 @@
 	<title>QPL Lab Management System beta 1.0-20160326</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="CSS/basic.css">
+	<script src="JS/jquery-1.12.2.min.js" type="text/javascript"></script>
+	<script src="JS/jquery.form.js" type="text/javascript"></script>
 	<script src="JS/basic.js" type="text/javascript"></script>
 </head>
 <body>
@@ -35,8 +37,10 @@
 <!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
 <div class="section" id="section-2">
 <!---------------------- div id="section-2-1" 大型仪器-------------------->
-<div id="section-2-1" class="section-div" style="display: none;">
-	<form action="submit.php" method="get">
+<div id="section-2-1" class="section-div"><!--  style="display: none;" -->
+	<div class="display"><h3>大型仪器</h3></div>
+	<form id="form1">
+		<input type="hidden" name="category" value="大型仪器"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
 			<input type="checkbox" name="tool-name" id="tool-name-11" value="激光器"></input><label for="tool-name-11">激光器</label>
@@ -61,7 +65,7 @@
 			<input type="checkbox" name="brand" id="brand-14" value="NewPort"></input><label for="brand-14">NewPort</label>
 		</div>
 
-		<div class="divmin" style="height: 110px;">
+		<div class="divmin"><!--  style="height: 110px;" -->
 			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
 			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
 		</div>
@@ -74,7 +78,9 @@
 </div>
 <!---------------------- div id="section-2-2"光学元件 -------------------->
 <div id="section-2-2" class="section-div" style="display: none;">
-	<form action="submit.php" method="get">
+	<div class="display"><h3>光学元件</h3></div>
+	<form>
+		<input type="hidden" name="category" value="光学元件"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
 			<input type="checkbox" name="tool-name" id="tool-name-21" value="银镜"></input><label for="tool-name-21">银镜</label>
@@ -99,7 +105,7 @@
 			<input type="checkbox" name="brand" id="brand-24" value="NewPort"></input><label for="brand-24">NewPort</label>
 		</div>
 
-		<div class="divmin" style="height: 110px;">
+		<div class="divmin"><!--  style="height: 110px;" -->
 			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
 			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
 		</div>
@@ -112,7 +118,9 @@
 </div>
 <!---------------------- div id="section-2-3" 光机-------------------->
 <div id="section-2-3" class="section-div" style="display: none;">
-	<form action="submit.php" method="get">
+	<div class="display"><h3>光机</h3></div>
+	<form>
+		<input type="hidden" name="category" value="光机"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
 			<input type="checkbox" name="tool-name" id="tool-name-31" value="位移台"></input><label for="tool-name-31">位移台</label>
@@ -137,7 +145,7 @@
 			<input type="checkbox" name="brand" id="brand-34" value="NewPort"></input><label for="brand-34">NewPort</label>
 		</div>
 
-		<div class="divmin" style="height: 110px;">
+		<div class="divmin" ><!-- style="height: 110px;" -->
 			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
 			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
 		</div>
@@ -150,7 +158,9 @@
 </div>
 <!---------------------- div id="section-2-4" 电子元件-------------------->	
 <div id="section-2-4" class="section-div" style="display: none;">
-	<form action="submit.php" method="get">
+	<div class="display"><h3>电子元件</h3></div>
+	<form>
+		<input type="hidden" name="category" value="电子元件"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
 			<input type="checkbox" name="tool-name" id="tool-name-41" value="BNC"></input><label for="tool-name-41">BNC</label>
@@ -175,7 +185,7 @@
 			<input type="checkbox" name="brand" id="brand-34" value="NewPort"></input><label for="brand-34">NewPort</label>
 		</div>
 
-		<div class="divmin" style="height: 110px;">
+		<div class="divmin"><!--  style="height: 110px;" -->
 			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
 			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
 		</div>
@@ -186,9 +196,7 @@
 		</div>
 	</form>
 </div>
-
 </div>
-<!-- ------------------------------二级页面二次查询select-2-2------------------------------------------- -->
 
 </body>
 </html>
