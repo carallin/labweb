@@ -1,0 +1,222 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none;}
+li{list-style-type: none;}
+
+header {
+	padding: 10px;
+	height: 80px;
+/*	position: fixed;*/
+/*	border: 1px solid black;*/
+}
+header h1{
+	padding: 10px 10px 20px 10px;
+}
+header p {
+	float: right;
+}
+
+nav {
+	font-size: 16px;
+	height: 46px;
+/*	border: 1px solid blue;*/
+/*	position: fixed;*/
+}
+nav ul {
+	overflow: hidden;
+	margin: 0 0 0 15px;
+}
+
+nav li a {
+	padding: 14px 36px;
+	display: inline-block;
+	float: left;
+}
+
+aside {
+	display: inline-block;
+	float: left;
+	margin: 0px 10px 0px 0px;
+/*	width: 10%;*/
+	width: 160px;
+	height: 100%;
+	position: fixed;
+/*	border: 1px solid blue;*/
+}
+aside h3 {
+	padding: 20px 10px 15px 35px;
+}
+.btn {
+	border: none;
+	border-radius: 12px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 15px 30px;
+	margin: 10px 15px;
+	width: 130px;
+	cursor: pointer;
+}
+
+.submit .btn {
+	font-size: 14px;
+	padding: 15px 20px;
+	width: 85px;
+}
+
+.section {
+	display: inline-block;
+/*	float: left;*/
+	position: fixed;
+	left: 160px;
+	top: 150px;
+	width: 82%;
+	height: 76%;
+	min-width: 300px;
+	min-height: 300px;
+/*	max-width: 1200px;*/
+	overflow: auto;
+/*	width: 100%;*/
+	border: 2px solid purple;
+}
+.display {
+	padding: 8px;
+	background-color: #4CAF50;
+	color: white;
+	max-width: 85px;
+}
+.section-div {
+	overflow: hidden;
+}
+.divmin {
+	display: inline-block;
+	float: left;
+/*	width: 250px;*/
+	width: 40%;
+/*	height: 150px;*/
+	margin: 10px 20px 30px 20px;
+	border: none;
+	border-radius: 10px;
+	float: left;
+}
+
+.divmin input[type="checkbox"]{
+	padding: 14px 16px;
+	margin: 10px;
+}
+
+.divmin input[type="number"] {
+	text-align: center;
+	padding: 8px 2px;
+	margin: 8px;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"] + label {
+	display: inline-block;
+	background-color: #999;
+	color: white;
+	padding: 8px 14px;
+	margin: 8px 5px;
+	border-radius: 12px;
+	position: relative;
+/*	width: 83px;*/
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label:hover  {
+	background: #66cc66;
+}
+
+/*.lable + label:after {
+	content: ' ';
+	border-radius: 100%;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	top: 10px;
+	right: 12px;
+	box-shadow: inset 0px 16px 40px rgba(0, 0, 0, 0.4);
+	display: none;
+}*/
+
+/*.lable:checked + label:after {
+	display: block;
+}*/
+input[type="checkbox"]:checked + label {
+	background: #4CAF50;
+}
+
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+}
+table th {
+	padding: 10px;
+	background-color: #ddd;
+}
+
+
+.insert-table td input {
+/*	overflow-x: auto;*/
+	display: inline-block;
+	text-align: center;
+	padding: 6px;
+	font-size: 12px;
+}
+select {
+	border: none;
+	padding: 6px;
+	font-size: 12px;
+}
+.insert-table input {
+	border: none;
+	size: 20;
+
+}
+/*--------------------------------颜色部分-------------------------------------*/
+
+nav {
+	background-color: #888;
+}
+
+nav a {
+	color: white;
+	font-style: bold;
+	text-align: center;
+}
+
+nav a:hover {
+	background-color: #4CAF50;
+	cursor: pointer;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.active-page {
+	background-color: #4CAF50;
+}
+
+aside {
+	background-color: #f8f8f8;
+}
+
+.btn {
+	background-color: rgb(255,240,184);
+	transition-duration: 0.4s;
+}
+.btn:hover {
+	background-color: rgb(245,210,224);
+	box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),10px 16px 30px rgba(0,0,0,0.19);
+}
+.btn:active {
+	background-color: rgb(245,200,224);
+	transform: translateY(6px);
+}
+
+.divmin {
+	background-color:rgb(255,230,204);
+}

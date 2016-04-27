@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<title>QPL Lab Management System beta 1.0-20160326</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="CSS/basic.css">
+	<script src="JS/jquery-1.12.2.min.js" type="text/javascript"></script>
+	<script src="JS/jquery.form.js" type="text/javascript"></script>
+	<script src="JS/basic.js" type="text/javascript"></script>
+</head>
+<body>
+
+<header>
+	<h1>器材管理系统</h1>
+	<p>南京大学量子光学实验室</p>
+</header>
+
+<nav>
+	<ul>
+		<li><a href="index.html">首页</a></li>
+		<li><a href="query.html" class="active-page">查询</a></li>
+		<li><a href="insert.html">添加</a></li>
+	</ul>
+</nav>
+
+<!-----------------------------------------查询的第一个页面---------------------------------------------->
+<aside>
+	<div class="aside" id="aside-2">
+		<button class="btn" onclick="divShow('section-2-1')">大型仪器</button></br>
+		<button class="btn" onclick="divShow('section-2-2')">光学元件</button></br>
+		<button class="btn" onclick="divShow('section-2-3')">光机</button></br>
+		<button class="btn" onclick="divShow('section-2-4')">电子元件</button></br>
+	</div>
+</aside>
+
+
+<!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
+<div class="section" id="section-2">
+<!---------------------- div id="section-2-1" 大型仪器-------------------->
+<div id="section-2-1" class="section-div"><!--  style="display: none;" -->
+	<div class="display"><h3>大型仪器</h3></div>
+	<form id="form1">
+		<input type="hidden" name="category" value="大型仪器"></input>
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器名称：</b></p>
+			<input type="checkbox" name="tool-name" id="tool-name-11" value="激光器"></input><label for="tool-name-11">激光器</label>
+			<input type="checkbox" name="tool-name" id="tool-name-12" value="频谱仪"></input><label for="tool-name-12">频谱仪</label>
+			<input type="checkbox" name="tool-name" id="tool-name-13" value="示波器"></input><label for="tool-name-13">示波器</label>
+			<input type="checkbox" name="tool-name" id="tool-name-14" value="电源"></input><label for="tool-name-14">电源</label>		
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>购买人：</b></p>
+			<input type="checkbox" name="owner" id="owner-11" value="徐慧超"></input><label for="owner-11">徐慧超</label>
+			<input type="checkbox" name="owner" id="owner-12" value="王云松"></input><label for="owner-12">王云松</label>
+			<input type="checkbox" name="owner" id="owner-13" value="胥亮"></input><label for="owner-13">胥亮</label>
+			<input type="checkbox" name="owner" id="owner-14" value="田响"></input><label for="owner-14">田响</label>
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器品牌：</b></p>
+			<input type="checkbox" name="brand" id="brand-11" value="ThorLabs"></input><label for="brand-11">ThorLabs</label>
+			<input type="checkbox" name="brand" id="brand-12" value="Agliant"></input><label for="brand-12">Agliant</label>
+			<input type="checkbox" name="brand" id="brand-13" value="3M"></input><label for="brand-13">3M</label>
+			<input type="checkbox" name="brand" id="brand-14" value="NewPort"></input><label for="brand-14">NewPort</label>
+		</div>
+
+		<div class="divmin"><!--  style="height: 110px;" -->
+			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
+			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
+		</div>
+
+		<div class="submit">
+			<input class="btn" type="reset"></input>
+			<input class="btn" type="submit"></input>
+		</div>
+	</form>
+</div>
+<!---------------------- div id="section-2-2"光学元件 -------------------->
+<div id="section-2-2" class="section-div" style="display: none;">
+	<div class="display"><h3>光学元件</h3></div>
+	<form>
+		<input type="hidden" name="category" value="光学元件"></input>
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器名称：</b></p>
+			<input type="checkbox" name="tool-name" id="tool-name-21" value="银镜"></input><label for="tool-name-21">银镜</label>
+			<input type="checkbox" name="tool-name" id="tool-name-22" value="透镜"></input><label for="tool-name-22">透镜</label>
+			<input type="checkbox" name="tool-name" id="tool-name-23" value="玻片"></input><label for="tool-name-23">玻片</label>
+			<input type="checkbox" name="tool-name" id="tool-name-24" value="晶体"></input><label for="tool-name-24">晶体</label>		
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>购买人：</b></p>
+			<input type="checkbox" name="owner" id="owner-21" value="徐慧超"></input><label for="owner-21">徐慧超</label>
+			<input type="checkbox" name="owner" id="owner-22" value="王云松"></input><label for="owner-22">王云松</label>
+			<input type="checkbox" name="owner" id="owner-23" value="胥亮"></input><label for="owner-23">胥亮</label>
+			<input type="checkbox" name="owner" id="owner-24" value="田响"></input><label for="owner-24">田响</label>
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器品牌：</b></p>
+			<input type="checkbox" name="brand" id="brand-21" value="ThorLabs"></input><label for="brand-21">ThorLabs</label>
+			<input type="checkbox" name="brand" id="brand-22" value="Agliant"></input><label for="brand-22">Agliant</label>
+			<input type="checkbox" name="brand" id="brand-23" value="3M"></input><label for="brand-23">3M</label>
+			<input type="checkbox" name="brand" id="brand-24" value="NewPort"></input><label for="brand-24">NewPort</label>
+		</div>
+
+		<div class="divmin"><!--  style="height: 110px;" -->
+			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
+			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
+		</div>
+
+		<div class="submit">
+			<input class="btn" type="reset"></input>
+			<input class="btn" type="submit"></input>
+		</div>
+	</form>
+</div>
+<!---------------------- div id="section-2-3" 光机-------------------->
+<div id="section-2-3" class="section-div" style="display: none;">
+	<div class="display"><h3>光机</h3></div>
+	<form>
+		<input type="hidden" name="category" value="光机"></input>
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器名称：</b></p>
+			<input type="checkbox" name="tool-name" id="tool-name-31" value="位移台"></input><label for="tool-name-31">位移台</label>
+			<input type="checkbox" name="tool-name" id="tool-name-32" value="旋转架"></input><label for="tool-name-32">旋转架</label>
+			<input type="checkbox" name="tool-name" id="tool-name-33" value="挡光板"></input><label for="tool-name-33">挡光板</label>
+			<input type="checkbox" name="tool-name" id="tool-name-34" value="底座"></input><label for="tool-name-34">底座</label>		
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>购买人：</b></p>
+			<input type="checkbox" name="owner" id="owner-31" value="徐慧超"></input><label for="owner-31">徐慧超</label>
+			<input type="checkbox" name="owner" id="owner-32" value="王云松"></input><label for="owner-32">王云松</label>
+			<input type="checkbox" name="owner" id="owner-33" value="胥亮"></input><label for="owner-33">胥亮</label>
+			<input type="checkbox" name="owner" id="owner-34" value="田响"></input><label for="owner-34">田响</label>
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器品牌：</b></p>
+			<input type="checkbox" name="brand" id="brand-31" value="ThorLabs"></input><label for="brand-31">ThorLabs</label>
+			<input type="checkbox" name="brand" id="brand-32" value="Agliant"></input><label for="brand-32">Agliant</label>
+			<input type="checkbox" name="brand" id="brand-33" value="3M"></input><label for="brand-33">3M</label>
+			<input type="checkbox" name="brand" id="brand-34" value="NewPort"></input><label for="brand-34">NewPort</label>
+		</div>
+
+		<div class="divmin" ><!-- style="height: 110px;" -->
+			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
+			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
+		</div>
+
+		<div class="submit">
+			<input class="btn" type="reset"></input>
+			<input class="btn" type="submit"></input>
+		</div>
+	</form>
+</div>
+<!---------------------- div id="section-2-4" 电子元件-------------------->	
+<div id="section-2-4" class="section-div" style="display: none;">
+	<div class="display"><h3>电子元件</h3></div>
+	<form>
+		<input type="hidden" name="category" value="电子元件"></input>
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器名称：</b></p>
+			<input type="checkbox" name="tool-name" id="tool-name-41" value="BNC"></input><label for="tool-name-41">BNC</label>
+			<input type="checkbox" name="tool-name" id="tool-name-42" value="SMA"></input><label for="tool-name-42">SMA</label>
+			<input type="checkbox" name="tool-name" id="tool-name-43" value="SMC"></input><label for="tool-name-43">SMC</label>
+			<input type="checkbox" name="tool-name" id="tool-name-44" value="USB"></input><label for="tool-name-44">USB</label>				
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>购买人：</b></p>
+			<input type="checkbox" name="owner" id="owner-31" value="徐慧超"></input><label for="owner-31">徐慧超</label>
+			<input type="checkbox" name="owner" id="owner-32" value="王云松"></input><label for="owner-32">王云松</label>
+			<input type="checkbox" name="owner" id="owner-33" value="胥亮"></input><label for="owner-33">胥亮</label>
+			<input type="checkbox" name="owner" id="owner-34" value="田响"></input><label for="owner-34">田响</label>
+		</div>
+
+		<div class="divmin">
+			<p style="padding: 10px;"><b>仪器品牌：</b></p>
+			<input type="checkbox" name="brand" id="brand-31" value="ThorLabs"></input><label for="brand-31">ThorLabs</label>
+			<input type="checkbox" name="brand" id="brand-32" value="Agliant"></input><label for="brand-32">Agliant</label>
+			<input type="checkbox" name="brand" id="brand-33" value="3M"></input><label for="brand-33">3M</label>
+			<input type="checkbox" name="brand" id="brand-34" value="NewPort"></input><label for="brand-34">NewPort</label>
+		</div>
+
+		<div class="divmin"><!--  style="height: 110px;" -->
+			<p style="padding: 10px;"><b>仪器购买时间：</b></p>
+			<input type="number" name="time" min="2013" max="2021" placeholder="e.g.2016">年份</input>
+		</div>
+
+		<div class="submit">
+			<input class="btn" type="reset"></input>
+			<input class="btn" type="submit"></input>
+		</div>
+	</form>
+</div>
+</div>
+
+</body>
+</html>
