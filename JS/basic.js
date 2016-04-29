@@ -1,4 +1,5 @@
 
+//control the visibility of the content
 function divShow(str) {
 	var btnN=Array(4);
 	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
@@ -9,87 +10,123 @@ function divShow(str) {
 		else
 			document.getElementById(btnN[i]).style.display="none";
 	}
-	
-}
+};
 
-/*function postData(ar) {
-	if (ar.lengh == 0) {
-		document.getElementById("test").innerHTML="";
-		return;
-	}
-	else {
-		var xmlhttp=new XMLHttpRequest();
-		xmlhttp.onreadystatechange == function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("test").innerHTML = xmlhttp.responseText;
-			}
+
+
+// var btn_21 = document.getElementById('btn-section-2-1');
+// var btn_22 = document.getElementById("btn-section-2-2");
+// document.getElementById('btn-section-2-3').addEventListener("click",divShow("section-2-3"),false);
+// var btn_24 = document.getElementById('btn-section-2-4');
+//
+// btn_22.addEventListener("click",divShow("section-2-2"),false);
+// btn_21.onclick = divShow('section-2-1');
+// btn_22.onclick = divShow('section-2-2');
+// btn_23.onclick = divShow('section-2-3');
+// btn_24.onclick = divShow('section-2-4');
+//document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息</p>";
+function postData(formId) {
+	//document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
+	var form = document.getElementById(formId);
+
+	document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息js版</p>";
+	document.getElementById("selected").innerHTML=serialize(form);
+
+	var xhr=new XMLHttpRequest();
+	xmlhttp.onreadystatechange == function() {
+		if (xhr.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("phpBack").innerHTML = xmlhttp.responseText;
+		}else {
+			alert("Request was 不成功" + xhr.status);
 		}
-		xmlhttp.open("GET","test.php?brand=" + ar,true);
-		xmlhttp.send();
 	}
-}
-*/
+	xhr.open("POST","test.php",true);
+	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xhr.send(serialize(form));
+	return false;
+	}
 
-// prepare the form when the DOM is ready 
-$(document).ready(function() { 
-    var options = { 
-        target:        '#section-2',   // target element(s) to be updated with server response  
-        beforeSubmit:  showRequest,  // pre-submit callback 
-       // success:       showResponse  // post-submit callback 
- 
-        // other available options: 
-        //url:       url         // override for form's 'action' attribute 
-        //type:      type        // 'get' or 'post', override for form's 'method' attribute 
-        //dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
-        //clearForm: true        // clear all form fields after successful submit 
-        //resetForm: true        // reset the form after successful submit 
- 
-        // $.ajax options can be used here too, for example: 
-        //timeout:   3000 
-    }; 
- 
-    // bind to the form's submit event 
-    $('#form1').submit(function() { 
-        // inside event callbacks 'this' is the DOM element so we first 
-        // wrap it in a jQuery object and then invoke ajaxSubmit 
-        $(this).ajaxSubmit(options); 
- 
-        // !!! Important !!! 
-        // always return false to prevent standard browser submit and page navigation 
-        return false; 
-    }); 
-}); 
- 
-// pre-submit callback 
-function showRequest(formData, jqForm, options) { 
-    // formData is an array; here we use $.param to convert it to a string to display it 
-    // but the form plugin does this for you automatically when it submits the data 
-    var queryString = $.param(formData); 
- 
-    // jqForm is a jQuery object encapsulating the form element.  To access the 
-    // DOM element for the form do this: 
-    // var formElement = jqForm[0]; 
- 
-    alert('About to submit: \n\n' + queryString); 
- 
-    // here we could return false to prevent the form from being submitted; 
-    // returning anything other than false will allow the form submit to continue 
-    return true; 
-} 
- 
-/*// post-submit callback 
-function showResponse(responseText, statusText, xhr, $form)  { 
-    // for normal html responses, the first argument to the success callback 
-    // is the XMLHttpRequest object's responseText property 
- 
-    // if the ajaxSubmit method was passed an Options Object with the dataType 
-    // property set to 'xml' then the first argument to the success callback 
-    // is the XMLHttpRequest object's responseXML property 
- 
-    // if the ajaxSubmit method was passed an Options Object with the dataType 
-    // property set to 'json' then the first argument to the success callback 
-    // is the json data object returned by the server 
- 
-    alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-        '\n\nThe output div should have already been updated with the responseText.'); 
+
+// function postData(ar) {
+// 	if (ar.lengh == 0) {
+// 		document.getElementById("test").innerHTML="";
+// 		return;
+// 	}
+// 	else {
+// 		var xmlhttp=new XMLHttpRequest();
+// 		xmlhttp.onreadystatechange == function() {
+// 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+// 				document.getElementById("test").innerHTML = xmlhttp.responseText;
+// 			}
+// 		}
+// 		xmlhttp.open("GET","test.php?brand=" + ar,true);
+// 		xmlhttp.send();
+// 	}
+// }
+
+
+/****jquery form
+// prepare the form when the DOM is ready
+$(document).ready(function() {
+    var options = {
+        target:        '#section-2',   // target element(s) to be updated with server response
+        beforeSubmit:  showRequest,  // pre-submit callback
+       // success:       showResponse  // post-submit callback
+
+        // other available options:
+        //url:       url         // override for form's 'action' attribute
+        //type:      type        // 'get' or 'post', override for form's 'method' attribute
+        //dataType:  null        // 'xml', 'script', or 'json' (expected server response type)
+        //clearForm: true        // clear all form fields after successful submit
+        //resetForm: true        // reset the form after successful submit
+
+        // $.ajax options can be used here too, for example:
+        //timeout:   3000
+    };
+
+    // bind to the form's submit event
+    $('#form1').submit(function() {
+        // inside event callbacks 'this' is the DOM element so we first
+        // wrap it in a jQuery object and then invoke ajaxSubmit
+        $(this).ajaxSubmit(options);
+
+        // !!! Important !!!
+        // always return false to prevent standard browser submit and page navigation
+        return false;
+    });
+});
+
+// pre-submit callback
+function showRequest(formData, jqForm, options) {
+    // formData is an array; here we use $.param to convert it to a string to display it
+    // but the form plugin does this for you automatically when it submits the data
+    var queryString = $.param(formData);
+
+    // jqForm is a jQuery object encapsulating the form element.  To access the
+    // DOM element for the form do this:
+    // var formElement = jqForm[0];
+
+    alert('About to submit: \n\n' + queryString);
+
+    // here we could return false to prevent the form from being submitted;
+    // returning anything other than false will allow the form submit to continue
+    return true;
+}
+*/ //jquery form
+
+/*/ post-submit callback
+function showResponse(responseText, statusText, xhr, $form)  {
+    // for normal html responses, the first argument to the success callback
+    // is the XMLHttpRequest object's responseText property
+
+    // if the ajaxSubmit method was passed an Options Object with the dataType
+    // property set to 'xml' then the first argument to the success callback
+    // is the XMLHttpRequest object's responseXML property
+
+    // if the ajaxSubmit method was passed an Options Object with the dataType
+    // property set to 'json' then the first argument to the success callback
+    // is the json data object returned by the server
+
+    alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
+        '\n\nThe output div should have already been updated with the responseText.');
 } */
