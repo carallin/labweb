@@ -37,11 +37,11 @@
 <!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
 <div class="section" id="section-2">
 
-	<div id = "selected"><p>haihai可以用于显示已选择的信息：</p></div>
+	<div class="div-massage" id = "selected"><p>haihai可以用于显示已选择的信息：html</p></div>
 <!---------------------- div id="section-2-1" 大型仪器-------------------->
 <div id="section-2-1" class="section-div"><!--  style="display: none;" -->
 	<div class="display"><h3>大型仪器</h3></div>
-	<form id="form1">
+	<form class="forms" id="form1">
 		<input type="hidden" name="category" value="大型仪器"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
@@ -81,7 +81,7 @@
 <!---------------------- div id="section-2-2"光学元件 -------------------->
 <div id="section-2-2" class="section-div" style="display: none;">
 	<div class="display"><h3>光学元件</h3></div>
-	<form>
+	<form  class="forms" id="form2">
 		<input type="hidden" name="category" value="光学元件"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
@@ -121,7 +121,7 @@
 <!---------------------- div id="section-2-3" 光机-------------------->
 <div id="section-2-3" class="section-div" style="display: none;">
 	<div class="display"><h3>光机</h3></div>
-	<form>
+	<form  class="forms" id="form3">
 		<input type="hidden" name="category" value="光机"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
@@ -161,7 +161,7 @@
 <!---------------------- div id="section-2-4" 电子元件-------------------->
 <div id="section-2-4" class="section-div" style="display: none;">
 	<div class="display"><h3>电子元件</h3></div>
-	<form id="form4">
+	<form  class="forms" id="form4">
 		<input type="hidden" name="category" value="电子元件"></input>
 		<div class="divmin">
 			<p style="padding: 10px;"><b>仪器名称：</b></p>
@@ -194,12 +194,12 @@
 
 		<div class="submit">
 			<input class="btn" type="reset"></input>
-			<input class="btn" type="submit" onclick="postData('form4')"></input>
+			<input class="btn" type="submit"></input>
 		</div>
 	</form>
 </div>
 
-<div id="phpBack">phpBack div 原来显示内容html</div>
+<div class="div-massage" id="phpBack">phpBack div 原来显示内容html</div>
 
 </div><!-------div section---->
 

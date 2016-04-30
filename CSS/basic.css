@@ -110,6 +110,12 @@ aside h3 {
 	margin: 8px;
 }
 
+.div-massage {
+	padding: 14px;
+	margin: 10px;
+	background-color: #fff;
+}
+
 input[type="checkbox"] {
 	display: none;
 }
@@ -175,7 +181,10 @@ select {
 .insert-table input {
 	border: none;
 	size: 20;
-
+}
+.insert-table input:focus {
+	border: 2px solid lightblue;
+	background-color: #cccc66;
 }
 /*--------------------------------颜色部分-------------------------------------*/
 

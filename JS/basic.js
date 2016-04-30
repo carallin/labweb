@@ -1,6 +1,7 @@
 
 //control the visibility of the content
 function divShow(str) {
+	document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
 	var btnN=Array(4);
 	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
 	for (var i = 0; i < btnN.length; i++) {
@@ -11,8 +12,6 @@ function divShow(str) {
 			document.getElementById(btnN[i]).style.display="none";
 	}
 };
-
-
 
 // var btn_21 = document.getElementById('btn-section-2-1');
 // var btn_22 = document.getElementById("btn-section-2-2");
@@ -25,47 +24,63 @@ function divShow(str) {
 // btn_23.onclick = divShow('section-2-3');
 // btn_24.onclick = divShow('section-2-4');
 //document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息</p>";
+
+$(document).ready(function () {
+  $("#form1").submit(function(){
+		$("#phpBack").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'test1.php',
+      type: 'post',
+      dataType: 'text',
+      data: $("#form1").serialize(),
+      success: function (data) {
+        $("#phpBack").html(data);
+      }
+			// error: function (XMLHttpRequest,textStatus,errorThrown){
+			// 	$("#phpBack").html(XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
+			// }
+    };
+    $.ajax(options);
+		var str = "你选中的是:	\r\n";
+		$(':checkbox:checked').each(function () {
+			str = str + $(this).val()+"  ";
+		});
+		$("#selected").html(str);
+		$(":checkbox").attr('checked',false);
+    return false;
+  });
+
+
+
+});
+
+
+//不能实现阻止submit提交数据-----------放弃
 function postData(formId) {
 	//document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
 	var form = document.getElementById(formId);
+	alert(formId+"***"+form);
+	//alert(new formData(form));
 
 	document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息js版</p>";
-	document.getElementById("selected").innerHTML=serialize(form);
+	document.getElementById("selected").innerHTML="serialize(form)";
 
 	var xhr=new XMLHttpRequest();
-	xmlhttp.onreadystatechange == function() {
-		if (xhr.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("phpBack").innerHTML = xmlhttp.responseText;
+	xhr.onreadystatechange == function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			document.getElementById("phpBack").innerHTML = xhr.responseText;
 		}else {
 			alert("Request was 不成功" + xhr.status);
 		}
 	}
 	xhr.open("POST","test.php",true);
 	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	xhr.send(serialize(form));
+	xhr.send(new formData(form));
 	return false;
 	}
 
 
-// function postData(ar) {
-// 	if (ar.lengh == 0) {
-// 		document.getElementById("test").innerHTML="";
-// 		return;
-// 	}
-// 	else {
-// 		var xmlhttp=new XMLHttpRequest();
-// 		xmlhttp.onreadystatechange == function() {
-// 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-// 				document.getElementById("test").innerHTML = xmlhttp.responseText;
-// 			}
-// 		}
-// 		xmlhttp.open("GET","test.php?brand=" + ar,true);
-// 		xmlhttp.send();
-// 	}
-// }
-
-
-/****jquery form
+/****、jquery form
 // prepare the form when the DOM is ready
 $(document).ready(function() {
     var options = {
