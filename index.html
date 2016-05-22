@@ -4,10 +4,7 @@
 <head>
 	<title>QPL Lab Management System beta 1.0-20160326</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="CSS/basic.css">
-	<script src="JS/jquery-1.12.2.min.js" type="text/javascript"></script>
-	<script src="JS/jquery.form.js" type="text/javascript"></script>
-	<script src="JS/basic.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="CSS/basic.css">
 </head>
 <body>
 
@@ -23,19 +20,22 @@
 		<li><a href="insert.html">添加</a></li>
 	</ul>
 </nav>
-<aside>
-	<h3>系统说明</h3>
+
+<aside id="aside-1">
+	<ul>
+		<li><a href="index.html">系统说明</a></li>
+		<li><a href="index.html">系统说明</a></li>
+		<li><a href="index.html">系统说明</a></li>
+	</ul>
 </aside>
 
-<div class="section">
+<section>
+	<h2>实验室器材管理系统使用说明</h2>
+	<p>此系统</p>
+</section>
 
-	<div class="aside" id="aside-1" style="display: none;">
-		<button class="btn" id="select-2-1" onclick="divShow('select-2-1')">大型仪器</button>
-		<button class="btn" id="select-2-2" onclick="divShow('select-2-2')">光学元件</button>
-		<button class="btn" id="select-2-3" onclick="divShow('select-2-3')">光机</button>
-		<button class="btn" id="select-2-4" onclick="divShow(3M)">电子元件</button>
-	</div>
-</div>
-
+	<script src="JS/jquery-1.12.2.min.js"></script>
+	<script src="JS/jquery.form.js"></script>
+	<script src="JS/basic.js"></script>
 </body>
 </html>

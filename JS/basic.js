@@ -1,7 +1,8 @@
 
 //control the visibility of the content
 function divShow(str) {
-	document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
+	//document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
+    document.getElementById('selected').innerHTML = "这里将显示你选择的信息";
 	var btnN=Array(4);
 	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
 	for (var i = 0; i < btnN.length; i++) {
@@ -41,11 +42,11 @@ $(document).ready(function () {
 			// }
     };
     $.ajax(options);
-		var str = "你选中的是:	\r\n";
+		var str = "你选择的搜索条件是：	";
 		$(':checkbox:checked').each(function () {
-			str = str + $(this).val()+"  ";
+			str = str + $(this).val()+" ";
 		});
-		$("#selected").html(str);
+        $("#selected").html(str);
 		$(":checkbox").attr('checked',false);
     return false;
   });
