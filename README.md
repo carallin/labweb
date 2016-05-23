@@ -1,4 +1,2 @@
 # labweb
-data mangement first try
-create a new branch song
-# 这是一个比较好的版本，是在改变css sheet之前最好的版本。
+###2016-05-23 第一个比较满意的版本，之后基本不会细调，只会增加内容。
