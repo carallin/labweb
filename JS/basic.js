@@ -2,19 +2,20 @@
 //control the visibility of the content
 function divShow(str) {
 	//document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
-/*    var books = [
-        {
-            title:"aa",
-            author:"AA"
-        },
-        {
-            title:"bb",
-            author:"BB"
-        }
-    ];
-    var jsonbook0=JSON.stringify(books);
-    var jsonbook=JSON.parse(jsonbook0);
-    alert(jsonbook[0].title);*/
+    // var books = [
+    //     {
+    //         title:"aa",
+    //         author:"AA"
+    //     },
+    //     {
+    //         title:"bb",
+    //         author:"BB"
+    //     }
+    // ];
+    // var jsonbook0=JSON.stringify(books);
+    // var jsonbook=JSON.parse(jsonbook0);
+    // //alert(jsonbook[0].title);
+    // alert(jsonbook);
     document.getElementById('selected').innerHTML = "这里将显示你选择的信息";
 	var btnN=Array(4);
 	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
@@ -47,7 +48,10 @@ $(document).ready(function () {
       type: 'post',
       dataType: 'json',
       data: $("#form1").serialize(),
-      success: jsonBack
+      // success: jsonBack
+      success: function (data) {
+        $("#phpBack").html(data.toolname);
+      }
 			// error: function (XMLHttpRequest,textStatus,errorThrown){
 			// 	$("#phpBack").html(XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
 			// }
