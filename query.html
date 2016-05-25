@@ -39,10 +39,10 @@
 		<input type="hidden" name="category" value="大型仪器"></input>
 		<div class="divmin">
 			<p><b>仪器名称：</b></p>
-			<input type="checkbox" name="toolName" id="tool-name-11" value="激光器"></input><label for="tool-name-11">激光器</label>
-			<input type="checkbox" name="toolName" id="tool-name-12" value="频谱仪"></input><label for="tool-name-12">频谱仪</label>
-			<input type="checkbox" name="toolName" id="tool-name-13" value="示波器"></input><label for="tool-name-13">示波器</label>
-			<input type="checkbox" name="toolName" id="tool-name-14" value="电源"></input><label for="tool-name-14">电源</label>
+			<input type="checkbox" name="toolname" id="tool-name-11" value="激光器"></input><label for="tool-name-11">激光器</label>
+			<input type="checkbox" name="toolname" id="tool-name-12" value="频谱仪"></input><label for="tool-name-12">频谱仪</label>
+			<input type="checkbox" name="toolname" id="tool-name-13" value="示波器"></input><label for="tool-name-13">示波器</label>
+			<input type="checkbox" name="toolname" id="tool-name-14" value="电源"></input><label for="tool-name-14">电源</label>
 		</div>
 
 		<div class="divmin">
@@ -79,10 +79,10 @@
 		<input type="hidden" name="category" value="光学元件"></input>
 		<div class="divmin">
 			<p><b>仪器名称：</b></p>
-			<input type="checkbox" name="toolName" id="tool-name-21" value="银镜"></input><label for="tool-name-21">银镜</label>
-			<input type="checkbox" name="toolName" id="tool-name-22" value="透镜"></input><label for="tool-name-22">透镜</label>
-			<input type="checkbox" name="toolName" id="tool-name-23" value="玻片"></input><label for="tool-name-23">玻片</label>
-			<input type="checkbox" name="toolName" id="tool-name-24" value="晶体"></input><label for="tool-name-24">晶体</label>
+			<input type="checkbox" name="toolname" id="tool-name-21" value="银镜"></input><label for="tool-name-21">银镜</label>
+			<input type="checkbox" name="toolname" id="tool-name-22" value="透镜"></input><label for="tool-name-22">透镜</label>
+			<input type="checkbox" name="toolname" id="tool-name-23" value="玻片"></input><label for="tool-name-23">玻片</label>
+			<input type="checkbox" name="toolname" id="tool-name-24" value="晶体"></input><label for="tool-name-24">晶体</label>
 		</div>
 
 		<div class="divmin">
@@ -119,10 +119,10 @@
 		<input type="hidden" name="category" value="光机"></input>
 		<div class="divmin">
 			<p><b>仪器名称：</b></p>
-			<input type="checkbox" name="toolName" id="tool-name-31" value="位移台"></input><label for="tool-name-31">位移台</label>
-			<input type="checkbox" name="toolName" id="tool-name-32" value="旋转架"></input><label for="tool-name-32">旋转架</label>
-			<input type="checkbox" name="toolName" id="tool-name-33" value="挡光板"></input><label for="tool-name-33">挡光板</label>
-			<input type="checkbox" name="toolName" id="tool-name-34" value="底座"></input><label for="tool-name-34">底座</label>
+			<input type="checkbox" name="toolname" id="tool-name-31" value="位移台"></input><label for="tool-name-31">位移台</label>
+			<input type="checkbox" name="toolname" id="tool-name-32" value="旋转架"></input><label for="tool-name-32">旋转架</label>
+			<input type="checkbox" name="toolname" id="tool-name-33" value="挡光板"></input><label for="tool-name-33">挡光板</label>
+			<input type="checkbox" name="toolname" id="tool-name-34" value="底座"></input><label for="tool-name-34">底座</label>
 		</div>
 
 		<div class="divmin">
@@ -159,10 +159,10 @@
 		<input type="hidden" name="category" value="电子元件"></input>
 		<div class="divmin">
 			<p><b>仪器名称：</b></p>
-			<input type="checkbox" name="toolName" id="tool-name-41" value="BNC"></input><label for="tool-name-41">BNC</label>
-			<input type="checkbox" name="toolName" id="tool-name-42" value="SMA"></input><label for="tool-name-42">SMA</label>
-			<input type="checkbox" name="toolName" id="tool-name-43" value="SMC"></input><label for="tool-name-43">SMC</label>
-			<input type="checkbox" name="toolName" id="tool-name-44" value="USB"></input><label for="tool-name-44">USB</label>
+			<input type="checkbox" name="toolname" id="tool-name-41" value="BNC"></input><label for="tool-name-41">BNC</label>
+			<input type="checkbox" name="toolname" id="tool-name-42" value="SMA"></input><label for="tool-name-42">SMA</label>
+			<input type="checkbox" name="toolname" id="tool-name-43" value="SMC"></input><label for="tool-name-43">SMC</label>
+			<input type="checkbox" name="toolname" id="tool-name-44" value="USB"></input><label for="tool-name-44">USB</label>
 		</div>
 
 		<div class="divmin">
@@ -194,7 +194,14 @@
 </div>
 
 <div class="div-massage-select" id = "selected"><p>这里将显示你选择的信息</p></div>
-<div class="div-massage-back" id="phpBack">这里将显示服务器返回的查询结果</div>
+<div class="div-massage-back" id="phpBack">
+	<p>这里将显示服务器返回的查询结果</p>
+	<table class="insert-table" id="search-table" border="1" style="display:none;">
+		<tr>
+			<th>序号</th><th>类型</th><th>名称</th><th>详细名称</th><th>型号</th><th>品牌</th><th>购买人</th><th>个数</th>
+			<th>购买时间</th><th>保修(年)</th>
+		</tr>
+</div>
 
 </section><!-------div section---->
 

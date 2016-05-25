@@ -2,6 +2,19 @@
 //control the visibility of the content
 function divShow(str) {
 	//document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
+/*    var books = [
+        {
+            title:"aa",
+            author:"AA"
+        },
+        {
+            title:"bb",
+            author:"BB"
+        }
+    ];
+    var jsonbook0=JSON.stringify(books);
+    var jsonbook=JSON.parse(jsonbook0);
+    alert(jsonbook[0].title);*/
     document.getElementById('selected').innerHTML = "这里将显示你选择的信息";
 	var btnN=Array(4);
 	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
@@ -32,11 +45,9 @@ $(document).ready(function () {
     var options = {
       url: 'test1.php',
       type: 'post',
-      dataType: 'text',
+      dataType: 'json',
       data: $("#form1").serialize(),
-      success: function (data) {
-        $("#phpBack").html(data);
-      }
+      success: jsonBack
 			// error: function (XMLHttpRequest,textStatus,errorThrown){
 			// 	$("#phpBack").html(XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
 			// }
@@ -50,12 +61,28 @@ $(document).ready(function () {
 		$(":checkbox").attr('checked',false);
     return false;
   });
-
-
-
 });
 
-
+function jsonBack (jsonDate){
+    var data = JSON.parse(jsonDate);
+    //$("#search-table").show;-------------------不知是否对。
+    var newTba,newTbb;
+    newTba = $("#search-table");
+    newTbb =  newTba.insertRow(1);
+    for (var i = 0; i < 9; i++) {
+        newTbb.insertCell(0).html = "0"+ (i + 1);
+        newTbb.insertCell(1).html = data.category;
+        newTbb.insertCell(2).html = data.toolname;
+        newTbb.insertCell(3).html = data.detail;
+        newTbb.insertCell(4).html = data.ids;
+        newTbb.insertCell(5).html = data.brand;
+        newTbb.insertCell(6).html = data.owner;
+        newTbb.insertCell(7).html = data.number;
+        newTbb.insertCell(8).html = data.time;
+        newTbb.insertCell(9).html = data.warranty;
+        newTbb =  newTba.insertRow(i+1);
+    }
+}
 //不能实现阻止submit提交数据-----------放弃
 function postData(formId) {
 	//document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
