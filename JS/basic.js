@@ -1,7 +1,7 @@
 
 //control the visibility of the content
 function divShow(str) {
-	//document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
+    //document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
 /*    var books = [
         {
             title:"aa",
@@ -16,18 +16,18 @@ function divShow(str) {
     var jsonbook=JSON.parse(jsonbook0);*/
     // //alert(jsonbook[0].title);
     // alert(jsonbook);
-    document.getElementById('selected').innerHTML = "这里将显示你选择的信息";
+    document.getElementById('selected').innerHTML = "<p>这里将显示你选择的信息</p>";
     document.getElementById('phpBack-p').innerHTML = "这里将显示服务器返回的查询结果";
     document.getElementById('search-table').style.display = "none";
-	var btnN=Array(4);
-	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
-	for (var i = 0; i < btnN.length; i++) {
-		if (btnN[i]==str) {
-			document.getElementById(btnN[i]).style.display="inline-block";
-		}
-		else
-			document.getElementById(btnN[i]).style.display="none";
-	}
+    var btnN=Array(4);
+    btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
+    for (var i = 0; i < btnN.length; i++) {
+        if (btnN[i]==str) {
+            document.getElementById(btnN[i]).style.display="inline-block";
+        }
+        else
+            document.getElementById(btnN[i]).style.display="none";
+    }
 };
 
 // var btn_21 = document.getElementById('btn-section-2-1');
@@ -44,7 +44,7 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1").submit(function(){
-	//$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options = {
       url: 'query.php',
       type: 'post',
@@ -54,17 +54,77 @@ $(document).ready(function () {
       // success: function (data) {
       //   $("#phpBack-p").html(data);
       // }
-			// error: function (XMLHttpRequest,textStatus,errorThrown){
-			//  	$("#phpBack").html("error"+XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
-			//  }
+            // error: function (XMLHttpRequest,textStatus,errorThrown){
+            //      $("#phpBack").html("error"+XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
+            //  }
     };
     $.ajax(options);
-		var str = "你选择的搜索条件是：	";
-		$(':checkbox:checked').each(function () {
-			str = str + $(this).val()+" ";
-		});
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
     $("#selected").html("<p>"+str+"</p>");
-		$(":checkbox").attr('checked',false);
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    return false;
+  });
+
+    $("#form2").submit(function(){
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'query.php',
+      type: 'post',
+      //dataType: 'json',
+      data: $("#form1").serialize(),
+      success: jsonBack
+    };
+    $.ajax(options);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    return false;
+  });
+
+    $("#form3").submit(function(){
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'query.php',
+      type: 'post',
+      //dataType: 'json',
+      data: $("#form1").serialize(),
+      success: jsonBack
+    };
+    $.ajax(options);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    return false;
+  });
+
+    $("#form4").submit(function(){
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'query.php',
+      type: 'post',
+      //dataType: 'json',
+      data: $("#form1").serialize(),
+      success: jsonBack
+    };
+    $.ajax(options);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
     $("#search-table tr:gt(0):not(:eq(1))").remove();
     return false;
   });
@@ -117,27 +177,27 @@ function jsonBack (data){
 
 //不能实现阻止submit提交数据-----------放弃
 /*function postData(formId) {
-	//document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
-	var form = document.getElementById(formId);
-	alert(formId+"***"+form);
-	//alert(new formData(form));
+    //document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
+    var form = document.getElementById(formId);
+    alert(formId+"***"+form);
+    //alert(new formData(form));
 
-	document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息js版</p>";
-	document.getElementById("selected").innerHTML="serialize(form)";
+    document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息js版</p>";
+    document.getElementById("selected").innerHTML="serialize(form)";
 
-	var xhr=new XMLHttpRequest();
-	xhr.onreadystatechange == function() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			document.getElementById("phpBack").innerHTML = xhr.responseText;
-		}else {
-			alert("Request was 不成功" + xhr.status);
-		}
-	}
-	xhr.open("POST","test.php",true);
-	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	xhr.send(new formData(form));
-	return false;
-	}*/
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange == function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("phpBack").innerHTML = xhr.responseText;
+        }else {
+            alert("Request was 不成功" + xhr.status);
+        }
+    }
+    xhr.open("POST","test.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.send(new formData(form));
+    return false;
+    }*/
 
 
 /****、jquery form
