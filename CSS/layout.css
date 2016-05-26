@@ -93,7 +93,7 @@ section {
 	width: 82%;
 	/*height: 76%;*/
 	min-width: 500px;
-	min-height: 500px;
+	min-height: 650px;
 /*	max-width: 1200px;*/
 	overflow: auto;
 /*	width: 100%;*/
@@ -163,7 +163,7 @@ section {
 .div-massage-back {
 	padding: 14px;
 	margin: 10px;
-	background-color: #f8f8f8;
+	background-color: #e1e1e1;
 }
 
 input[type="checkbox"] {
