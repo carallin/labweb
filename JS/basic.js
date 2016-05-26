@@ -17,6 +17,8 @@ function divShow(str) {
     // //alert(jsonbook[0].title);
     // alert(jsonbook);
     document.getElementById('selected').innerHTML = "这里将显示你选择的信息";
+    document.getElementById('phpBack-p').innerHTML = "这里将显示服务器返回的查询结果";
+    document.getElementById('search-table').style.display = "none";
 	var btnN=Array(4);
 	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
 	for (var i = 0; i < btnN.length; i++) {
@@ -26,27 +28,6 @@ function divShow(str) {
 		else
 			document.getElementById(btnN[i]).style.display="none";
 	}
-
-
-
-/*        var newTba,newTbb;
-    newTba = document.getElementById("#search-table");
-    newTbb =  newTba.insertRow(1);
-    for (var i = 0; i < jsonbook.length; i++) {
-        newTbb.insertCell(0).html = "0"+ (i + 1);
-        newTbb.insertCell(1).html = jsonbook[i].title;
-        newTbb.insertCell(2).html = jsonbook[i].title;
-        newTbb.insertCell(3).html = jsonbook[i].title;
-        newTbb.insertCell(4).html = jsonbook[i].title;
-        newTbb.insertCell(5).html = jsonbook[i].title;
-        newTbb.insertCell(6).html = jsonbook[i].title;
-        newTbb.insertCell(7).html = jsonbook[i].title;
-        newTbb.insertCell(8).html = jsonbook[i].title;
-        newTbb.insertCell(9).html = jsonbook[i].title;
-        newTbb =  newTba.insertRow(i+1);
-    }
-
-*/
 };
 
 // var btn_21 = document.getElementById('btn-section-2-1');
@@ -63,53 +44,74 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1").submit(function(){
-	$("#phpBack p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+	//$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options = {
       url: 'query.php',
       type: 'post',
       //dataType: 'json',
       data: $("#form1").serialize(),
-      // success: jsonBack
-      success: function (data) {
-        $("#phpBack").html(data);
-      }
+      success: jsonBack
+      // success: function (data) {
+      //   $("#phpBack-p").html(data);
+      // }
 			// error: function (XMLHttpRequest,textStatus,errorThrown){
-			// 	$("#phpBack").html(XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
-			// }
+			//  	$("#phpBack").html("error"+XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
+			//  }
     };
     $.ajax(options);
 		var str = "你选择的搜索条件是：	";
 		$(':checkbox:checked').each(function () {
 			str = str + $(this).val()+" ";
 		});
-        $("#selected").html(str);
+    $("#selected").html("<p>"+str+"</p>");
 		$(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
     return false;
   });
 });
 
-function jsonBack (jsonDate){
-    var data = JSON.parse(jsonDate);
-    //$("#search-table").show;-------------------不知是否对。
-    $("#phpBack").html(data.category+data.toolname);
-   // $("#phpBack").html(data[0].category+data[0].toolname);
+function jsonBack (data){
+    var jsonObject = JSON.parse(data);
+    var newRow=["没有符合条件的结果"];
+    //$("#phpBack p").html(data+"<br>"+jsonObject+"<br>"+jsonObject[0].category);
+    //$("#phpBack p").html(data);
+    //$("#phpBack p").html(jsonObject[0].msg);
+    // $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
+    // $("#search-table").show();
 
-    /*var newTba,newTbb;
-    newTba = $("#search-table");
-    newTbb =  newTba.insertRow(1);
-    for (var i = 0; i < data.length; i++) {
-        newTbb.insertCell(0).html = "0"+ (i + 1);
-        newTbb.insertCell(1).html = data[i].category;
-        newTbb.insertCell(2).html = data[i].toolname;
-        newTbb.insertCell(3).html = data[i].detail;
-        newTbb.insertCell(4).html = data[i].ids;
-        newTbb.insertCell(5).html = data[i].brand;
-        newTbb.insertCell(6).html = data[i].owner;
-        newTbb.insertCell(7).html = data[i].number;
-        newTbb.insertCell(8).html = data[i].time;
-        newTbb.insertCell(9).html = data[i].warranty;
-        newTbb =  newTba.insertRow(i+1);
-    }*/
+    // ***************用来判断是否有符合条件的查询结果*********************************
+    if (jsonObject.length > 0) {
+      $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
+      $("#search-table").show();
+      for (var i = 0; i < jsonObject.length; i++) {
+        newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
+        +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+        $("#search-table tr:last").after(newRow[i]);
+      }
+    } else {
+      $("#search-table").hide();
+      $("#phpBack-p").html("没有符合该搜索条件的结果，请重新选择。");
+    }
+
+    //***************用来判断是否有符合条件的查询结果*********************************
+    // var msg = jsonObject[jsonObject.length-1].msg;
+    // if (msg) {
+    //   $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
+    //   $("#search-table").show();
+    //   for (var i = 0; i < jsonObject.length; i++) {
+    //     newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
+    //     +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+    //     $("#search-table tr:last").after(newRow[i]);
+    //   }
+    // } else {
+    //   $("#phpBack-p").html("没有符合该搜索条件的结果，请重新选择。");
+    // }
+
+    // for (var i = 0; i < jsonObject.length; i++) {
+    //   newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
+    //   +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+    //   $("#search-table tr:last").after(newRow[i]);
+    // }
 }
 
 

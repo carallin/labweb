@@ -4,11 +4,11 @@ li{list-style-type: none;}
 
 p {
 	line-height: 120%;
-	margin: 10px 0 0 15px;
+	margin: 10px 15px;
 }
 h2 {
 	line-height: 150%;
-	margin: 10px 0 30px 10px;
+	margin: 10px 10px 30px 10px;
 }
 header {
 	padding: 10px;
@@ -153,19 +153,6 @@ section {
 /*	border: 1px solid black;*/
 }
 
-.div-massage-select {
-	padding: 14px;
-	margin: 5px 10px;
-	font-weight: bold;
-	color: #3cafa3;
-	background-color: #eee;
-}
-.div-massage-back {
-	padding: 14px;
-	margin: 10px;
-	background-color: #e1e1e1;
-}
-
 input[type="checkbox"] {
 	display: none;
 }
@@ -218,6 +205,25 @@ table th {
 	background-color: #ddd;
 }
 
+/***************从数据库返回的 显示结果的部分******************************/
+.div-massage-select {
+	padding: 10px;
+	margin: 5px 10px;
+	font-weight: bold;
+	color: #3cafa3;
+	background-color: #eee;
+}
+
+.div-massage-back {
+	padding: 10px;
+	margin: 10px;
+	background-color: #f2f2f2;
+}
+
+.normal-table td{
+	padding: 6px;
+}
+/***************“添加”这个页面里关于table的一些设置******************************/
 .insert-table td input {
 /*	overflow-x: auto;*/
 	display: inline-block;
