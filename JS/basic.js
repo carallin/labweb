@@ -1,7 +1,7 @@
 
 //control the visibility of the content
 function divShow(str) {
-	//document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
+    //document.getElementById('phpBack').innerHTML = "这是divshow函数运行时。。。";
 /*    var books = [
         {
             title:"aa",
@@ -13,18 +13,21 @@ function divShow(str) {
         }
     ];
     var jsonbook0=JSON.stringify(books);
-    var jsonbook=JSON.parse(jsonbook0);
-    alert(jsonbook[0].title);*/
-    document.getElementById('selected').innerHTML = "这里将显示你选择的信息";
-	var btnN=Array(4);
-	btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
-	for (var i = 0; i < btnN.length; i++) {
-		if (btnN[i]==str) {
-			document.getElementById(btnN[i]).style.display="inline-block";
-		}
-		else
-			document.getElementById(btnN[i]).style.display="none";
-	}
+    var jsonbook=JSON.parse(jsonbook0);*/
+    // //alert(jsonbook[0].title);
+    // alert(jsonbook);
+    document.getElementById('selected').innerHTML = "<p>这里将显示你选择的信息</p>";
+    document.getElementById('phpBack-p').innerHTML = "这里将显示服务器返回的查询结果";
+    document.getElementById('search-table').style.display = "none";
+    var btnN=Array(4);
+    btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
+    for (var i = 0; i < btnN.length; i++) {
+        if (btnN[i]==str) {
+            document.getElementById(btnN[i]).style.display="inline-block";
+        }
+        else
+            document.getElementById(btnN[i]).style.display="none";
+    }
 };
 
 // var btn_21 = document.getElementById('btn-section-2-1');
@@ -41,71 +44,160 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1").submit(function(){
-		$("#phpBack").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options = {
-      url: 'test1.php',
+      url: 'query.php',
       type: 'post',
-      dataType: 'json',
+      //dataType: 'json',
       data: $("#form1").serialize(),
       success: jsonBack
-			// error: function (XMLHttpRequest,textStatus,errorThrown){
-			// 	$("#phpBack").html(XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
-			// }
+      // success: function (data) {
+      //   $("#phpBack-p").html(data);
+      // }
+            // error: function (XMLHttpRequest,textStatus,errorThrown){
+            //      $("#phpBack").html("error"+XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
+            //  }
     };
     $.ajax(options);
-		var str = "你选择的搜索条件是：	";
-		$(':checkbox:checked').each(function () {
-			str = str + $(this).val()+" ";
-		});
-        $("#selected").html(str);
-		$(":checkbox").attr('checked',false);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    return false;
+  });
+
+    $("#form2").submit(function(){
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'query.php',
+      type: 'post',
+      //dataType: 'json',
+      data: $("#form1").serialize(),
+      success: jsonBack
+    };
+    $.ajax(options);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    return false;
+  });
+
+    $("#form3").submit(function(){
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'query.php',
+      type: 'post',
+      //dataType: 'json',
+      data: $("#form1").serialize(),
+      success: jsonBack
+    };
+    $.ajax(options);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    return false;
+  });
+
+    $("#form4").submit(function(){
+    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options = {
+      url: 'query.php',
+      type: 'post',
+      //dataType: 'json',
+      data: $("#form1").serialize(),
+      success: jsonBack
+    };
+    $.ajax(options);
+    var str = "你选择的搜索条件是：    ";
+    $(':checkbox:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":checkbox").attr('checked',false);
+    $("#search-table tr:gt(0):not(:eq(1))").remove();
     return false;
   });
 });
 
-function jsonBack (jsonDate){
-    var data = JSON.parse(jsonDate);
-    //$("#search-table").show;-------------------不知是否对。
-    var newTba,newTbb;
-    newTba = $("#search-table");
-    newTbb =  newTba.insertRow(1);
-    for (var i = 0; i < 9; i++) {
-        newTbb.insertCell(0).html = "0"+ (i + 1);
-        newTbb.insertCell(1).html = data.category;
-        newTbb.insertCell(2).html = data.toolname;
-        newTbb.insertCell(3).html = data.detail;
-        newTbb.insertCell(4).html = data.ids;
-        newTbb.insertCell(5).html = data.brand;
-        newTbb.insertCell(6).html = data.owner;
-        newTbb.insertCell(7).html = data.number;
-        newTbb.insertCell(8).html = data.time;
-        newTbb.insertCell(9).html = data.warranty;
-        newTbb =  newTba.insertRow(i+1);
+function jsonBack (data){
+    var jsonObject = JSON.parse(data);
+    var newRow=["没有符合条件的结果"];
+    //$("#phpBack p").html(data+"<br>"+jsonObject+"<br>"+jsonObject[0].category);
+    //$("#phpBack p").html(data);
+    //$("#phpBack p").html(jsonObject[0].msg);
+    // $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
+    // $("#search-table").show();
+
+    // ***************用来判断是否有符合条件的查询结果*********************************
+    if (jsonObject.length > 0) {
+      $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
+      $("#search-table").show();
+      for (var i = 0; i < jsonObject.length; i++) {
+        newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
+        +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+        $("#search-table tr:last").after(newRow[i]);
+      }
+    } else {
+      $("#search-table").hide();
+      $("#phpBack-p").html("没有符合该搜索条件的结果，请重新选择。");
     }
+
+    //***************用来判断是否有符合条件的查询结果*********************************
+    // var msg = jsonObject[jsonObject.length-1].msg;
+    // if (msg) {
+    //   $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
+    //   $("#search-table").show();
+    //   for (var i = 0; i < jsonObject.length; i++) {
+    //     newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
+    //     +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+    //     $("#search-table tr:last").after(newRow[i]);
+    //   }
+    // } else {
+    //   $("#phpBack-p").html("没有符合该搜索条件的结果，请重新选择。");
+    // }
+
+    // for (var i = 0; i < jsonObject.length; i++) {
+    //   newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
+    //   +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+    //   $("#search-table tr:last").after(newRow[i]);
+    // }
 }
+
+
 //不能实现阻止submit提交数据-----------放弃
-function postData(formId) {
-	//document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
-	var form = document.getElementById(formId);
-	alert(formId+"***"+form);
-	//alert(new formData(form));
+/*function postData(formId) {
+    //document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";
+    var form = document.getElementById(formId);
+    alert(formId+"***"+form);
+    //alert(new formData(form));
 
-	document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息js版</p>";
-	document.getElementById("selected").innerHTML="serialize(form)";
+    document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息js版</p>";
+    document.getElementById("selected").innerHTML="serialize(form)";
 
-	var xhr=new XMLHttpRequest();
-	xhr.onreadystatechange == function() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			document.getElementById("phpBack").innerHTML = xhr.responseText;
-		}else {
-			alert("Request was 不成功" + xhr.status);
-		}
-	}
-	xhr.open("POST","test.php",true);
-	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	xhr.send(new formData(form));
-	return false;
-	}
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange == function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("phpBack").innerHTML = xhr.responseText;
+        }else {
+            alert("Request was 不成功" + xhr.status);
+        }
+    }
+    xhr.open("POST","test.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.send(new formData(form));
+    return false;
+    }*/
 
 
 /****、jquery form
