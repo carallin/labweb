@@ -65,67 +65,67 @@ $(document).ready(function () {
     });
     $("#selected").html("<p>"+str+"</p>");
     $(":checkbox").attr('checked',false);
-    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    $("#search-table tr:gt(0)").remove();
     return false;
   });
 
     $("#form2").submit(function(){
     //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
-    var options = {
+    var options2 = {
       url: 'query.php',
       type: 'post',
       //dataType: 'json',
-      data: $("#form1").serialize(),
+      data: $("#form2").serialize(),
       success: jsonBack
     };
-    $.ajax(options);
-    var str = "你选择的搜索条件是：    ";
+    $.ajax(options2);
+    var str2 = "你选择的搜索条件是：    ";
     $(':checkbox:checked').each(function () {
-        str = str + $(this).val()+" ";
+        str2 = str2 + $(this).val()+" ";
     });
-    $("#selected").html("<p>"+str+"</p>");
+    $("#selected").html("<p>"+str2+"</p>");
     $(":checkbox").attr('checked',false);
-    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    $("#search-table tr:gt(0)").remove();
     return false;
   });
 
     $("#form3").submit(function(){
     //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
-    var options = {
+    var options3 = {
       url: 'query.php',
       type: 'post',
       //dataType: 'json',
-      data: $("#form1").serialize(),
+      data: $("#form3").serialize(),
       success: jsonBack
     };
-    $.ajax(options);
-    var str = "你选择的搜索条件是：    ";
+    $.ajax(options3);
+    var str3 = "你选择的搜索条件是：    ";
     $(':checkbox:checked').each(function () {
-        str = str + $(this).val()+" ";
+        str3 = str3 + $(this).val()+" ";
     });
-    $("#selected").html("<p>"+str+"</p>");
+    $("#selected").html("<p>"+str3+"</p>");
     $(":checkbox").attr('checked',false);
-    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    $("#search-table tr:gt(0)").remove();
     return false;
   });
 
     $("#form4").submit(function(){
     //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
-    var options = {
+    var options4 = {
       url: 'query.php',
       type: 'post',
       //dataType: 'json',
-      data: $("#form1").serialize(),
+      data: $("#form4").serialize(),
       success: jsonBack
     };
-    $.ajax(options);
-    var str = "你选择的搜索条件是：    ";
+    $.ajax(options4);
+    var str4 = "你选择的搜索条件是：    ";
     $(':checkbox:checked').each(function () {
-        str = str + $(this).val()+" ";
+        str4 = str4 + $(this).val()+" ";
     });
-    $("#selected").html("<p>"+str+"</p>");
+    $("#selected").html("<p>"+str4+"</p>");
     $(":checkbox").attr('checked',false);
-    $("#search-table tr:gt(0):not(:eq(1))").remove();
+    $("#search-table tr:gt(0)").remove();
     return false;
   });
 });
