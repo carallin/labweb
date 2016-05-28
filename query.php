@@ -62,11 +62,11 @@ if (array_key_exists('number',$arr_Query)){
 }
 else {$sql_number=" ";}
 
-if (array_key_exists('boughtime',$arr_Query)){
-  $boughtime=$arr_Query["boughtime"];
-  $sql_boughtime=" AND boughtime='$boughtime'";
-}
-else {$sql_boughtime=" ";}
+// if (array_key_exists('timeyear',$arr_Query)){
+//   $timeyear=$arr_Query["timeyear"];
+//   $sql_timeyear=" AND timeyear='$timeyear'";
+// }
+// else {$sql_timeyear=" ";}
 
 if (array_key_exists('warranty',$arr_Query)){
   $warranty=$arr_Query["warranty"];
@@ -74,7 +74,7 @@ if (array_key_exists('warranty',$arr_Query)){
 }
 else {$sql_warranty=" ";}
 
-$sql=$sql_category.$sql_toolname.$sql_detail.$sql_ids.$sql_brand.$sql_number.$sql_warranty.$sql_owner.$sql_boughtime.';';
+$sql=$sql_category.$sql_toolname.$sql_detail.$sql_ids.$sql_brand.$sql_number.$sql_warranty.$sql_owner;//.$sql_timeyear;
 // echo $sql;
 $result=$conn->query($sql);
 

@@ -60,11 +60,11 @@ $(document).ready(function () {
     };
     $.ajax(options);
     var str = "你选择的搜索条件是：    ";
-    $(':checkbox:checked').each(function () {
+    $(':radio:checked').each(function () {
         str = str + $(this).val()+" ";
     });
     $("#selected").html("<p>"+str+"</p>");
-    $(":checkbox").attr('checked',false);
+    $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
     return false;
   });
@@ -80,11 +80,11 @@ $(document).ready(function () {
     };
     $.ajax(options2);
     var str2 = "你选择的搜索条件是：    ";
-    $(':checkbox:checked').each(function () {
+    $(':radio:checked').each(function () {
         str2 = str2 + $(this).val()+" ";
     });
     $("#selected").html("<p>"+str2+"</p>");
-    $(":checkbox").attr('checked',false);
+    $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
     return false;
   });
@@ -100,11 +100,11 @@ $(document).ready(function () {
     };
     $.ajax(options3);
     var str3 = "你选择的搜索条件是：    ";
-    $(':checkbox:checked').each(function () {
+    $(':radio:checked').each(function () {
         str3 = str3 + $(this).val()+" ";
     });
     $("#selected").html("<p>"+str3+"</p>");
-    $(":checkbox").attr('checked',false);
+    $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
     return false;
   });
@@ -120,11 +120,11 @@ $(document).ready(function () {
     };
     $.ajax(options4);
     var str4 = "你选择的搜索条件是：    ";
-    $(':checkbox:checked').each(function () {
+    $(':radio:checked').each(function () {
         str4 = str4 + $(this).val()+" ";
     });
     $("#selected").html("<p>"+str4+"</p>");
-    $(":checkbox").attr('checked',false);
+    $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
     return false;
   });
@@ -144,8 +144,8 @@ function jsonBack (data){
       $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
       $("#search-table").show();
       for (var i = 0; i < jsonObject.length; i++) {
-        newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
-        +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+        newRow[i] = "<tr><td>"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].ids+"</td><td>"+jsonObject[i].detail
+        +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].buytime+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
         $("#search-table tr:last").after(newRow[i]);
       }
     } else {

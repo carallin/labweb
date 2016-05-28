@@ -47,10 +47,10 @@ nav li a {
 aside {
     display: inline-block;
     float: left;
-    margin: 0px 10px;
+    margin: 0;
     padding: 0 0 20px;
 /*    width: 10%;*/
-    width: 180px;
+    width: 200px;
     height: 600px;
     height: 100%;
 /*    position: fixed;*/
@@ -77,19 +77,20 @@ aside a:hover {
 }
 aside a:active {
 	color: #000;
+  /*background-color: #fdd;*/
 }
-/*.active-a a {
-	background-color: #fedddd;
+.active-a {
+	background-color: #fdc1c1;
 }
-*/
+
 .btn {
     border: none;
     border-radius: 12px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    padding: 15px 30px;
-    margin: 10px 20px;
+    padding: 15px 0;
+    margin: 10px 30px;
     width: 130px;
     cursor: pointer;
 }
@@ -97,7 +98,8 @@ aside a:active {
 .submit .btn {
     font-size: 14px;
     width: 85px;
-    padding: 15px 20px;
+    margin: 10px 20px;
+
 }
 
 section {
@@ -132,16 +134,23 @@ section {
 }
 .divmin {
     display: inline-block;
-    float: left;
+    /*float: left;*/
 /*    width: 250px;*/
-    width: 45%;
+
     min-width: 400px;
+    width: 45%;
 /*    height: 150px;*/
     margin: 10px 20px 30px 20px;
     border: none;
     border-radius: 10px;
     float: left;
 }
+/*.divmin:nth-child(2n) {
+  clear: left;
+}
+.divmin:nth-child(2n+1) {
+  float: left;
+}*/
 .divmin p {
     padding: 10px;
     margin: 0;
@@ -237,7 +246,7 @@ table th {
 }
 
 .normal-table td{
-    padding: 6px;
+    padding: 6px 8px;
 }
 /***************“添加”这个页面里关于table的一些设置******************************/
 .insert-table td input {
