@@ -74,7 +74,7 @@ if (array_key_exists('warranty',$arr_Query)){
 }
 else {$sql_warranty=" ";}
 
-$sql=$sql_category.$sql_toolname.$sql_detail.$sql_ids.$sql_brand.$sql_number.$sql_warranty.$sql_owner.$sql_boughtime;
+$sql=$sql_category.$sql_toolname.$sql_detail.$sql_ids.$sql_brand.$sql_number.$sql_warranty.$sql_owner.$sql_boughtime.';';
 // echo $sql;
 $result=$conn->query($sql);
 
