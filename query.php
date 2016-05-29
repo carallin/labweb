@@ -1,8 +1,8 @@
 <?php
 //Mariadb information
 $servername="localhost";
-$username="root";
-$password="carallen";
+$username="QPL";
+$password="wys";
 //connect to Mariadb
 try{
   $conn=new PDO("mysql:host=$servername;dbname=Lab",$username,$password);
@@ -62,11 +62,11 @@ if (array_key_exists('number',$arr_Query)){
 }
 else {$sql_number=" ";}
 
-// if (array_key_exists('timeyear',$arr_Query)){
-//   $timeyear=$arr_Query["timeyear"];
-//   $sql_timeyear=" AND timeyear='$timeyear'";
-// }
-// else {$sql_timeyear=" ";}
+if ($arr_Query["timeyear"]!=NULL){
+  $timeyear=$arr_Query["timeyear"];
+  $sql_timeyear=" AND timeyear='$timeyear'";
+}
+else {$sql_timeyear=" ";}
 
 if (array_key_exists('warranty',$arr_Query)){
   $warranty=$arr_Query["warranty"];
@@ -74,7 +74,7 @@ if (array_key_exists('warranty',$arr_Query)){
 }
 else {$sql_warranty=" ";}
 
-$sql=$sql_category.$sql_toolname.$sql_detail.$sql_ids.$sql_brand.$sql_number.$sql_warranty.$sql_owner;//.$sql_timeyear;
+$sql=$sql_category.$sql_toolname.$sql_detail.$sql_ids.$sql_brand.$sql_number.$sql_warranty.$sql_owner.$sql_timeyear;
 // echo $sql;
 $result=$conn->query($sql);
 
