@@ -16,6 +16,7 @@ catch (PDOException $e){
 //echo json_encode($_POST);
 //同一个变量里选择两个选项时只会返回最后一个！
 $arr_Query=$_POST;
+// echo json_encode($arr_Query);
 $category=$arr_Query["category"];
 $sql_category="SELECT * FROM Lab.equipments WHERE category='$category'";
 // $sql_toolname=array_key_exists('toolname',$arr_Query)?"AND toolname='$_POST["toolname"]'":" ";

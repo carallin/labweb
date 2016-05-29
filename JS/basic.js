@@ -41,12 +41,21 @@ function divShow(str) {
 // btn_23.onclick = divShow('section-2-3');
 // btn_24.onclick = divShow('section-2-4');
 //document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息</p>";
+// $(function () {
+//   $("btn-section-2-5").click(function () {
+//     var options = {
+//       url: 'query.php',
+//       type: 'post',
+//       success:jsonBack;
+//     }
+//   });
+// });
 
 $(document).ready(function () {
   $("#form1").submit(function(){
-    // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
-    var options = {
-      url: 'query.php',
+    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    var options1 = {
+      url: 'queryAll.php',
       type: 'post',
       //dataType: 'json',
       data: $("#form1").serialize(),
@@ -58,16 +67,16 @@ $(document).ready(function () {
             //      $("#phpBack").html("error"+XMLHttpRequest+"***********"+textStatus+"******"+errorThrown);
             //  }
     };
-    $.ajax(options);
-    var str = "你选择的搜索条件是：    ";
+    $.ajax(options1);
+    var str1 = "你选择的搜索条件是：    ";
     $(':radio:checked').each(function () {
-        str = str + $(this).val()+" ";
+        str1 = str1 + $(this).val()+" ";
     });
     if ($('#form1 input:text').val()) {
-      str = str + "ID=" + $('input:text').val();
+      str1 = str1 + "ID=" + $('input:text').val();
       $('input:text').val("").focus();
     };
-    $("#selected").html("<p>"+str+"</p>");
+    $("#selected").html("<p>"+str1+"</p>");
     $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
     return false;
@@ -101,7 +110,7 @@ $(document).ready(function () {
   });
 
     $("#form3").submit(function(){
-    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options3 = {
       url: 'query.php',
       type: 'post',
@@ -121,7 +130,7 @@ $(document).ready(function () {
   });
 
     $("#form4").submit(function(){
-    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options4 = {
       url: 'query.php',
       type: 'post',
