@@ -8,7 +8,7 @@
 <body>
 
 <header>
-    <h1>器材管理系统</h1>
+    <h1>QPLab器材管理系统</h1>
     <p>南京大学量子光学实验室</p>
 </header>
 
@@ -17,13 +17,13 @@
         <li><a href="index.html">首页</a></li>
         <li><a href="query.html" class="active-page">查询</a></li>
         <li><a href="insert.html">添加</a></li>
-        <li><a href="doc.html">说明书</a></li>
+        <!-- <li><a href="doc.html">说明书</a></li> -->
     </ul>
 </nav>
 
 <!-----------------------------------------查询的第一个页面---------------------------------------------->
 <aside id="aside-2">
-    <button class="btn" id="btn-section-2-1" onclick="divShow('section-2-1')">大型仪器</button></br>
+    <button class="btn" id="btn-section-2-1" onclick="divShow('section-2-1')">型号查询</button></br>
     <button class="btn" id="btn-section-2-2" onclick="divShow('section-2-2')">光学元件</button></br>
     <button class="btn" id="btn-section-2-3" onclick="divShow('section-2-3')">光机平台</button></br>
     <button class="btn" id="btn-section-2-4" onclick="divShow('section-2-4')">电子元件</button></br>
@@ -35,7 +35,7 @@
 
 <!---------------------- div id="section-2-1" 大型仪器-------------------->
 <div id="section-2-1" class="section-div"><!--  style="display: none;" -->
-    <div class="display"><h3>大型仪器</h3></div>
+    <div class="display"><h3>大型仪器查询</h3></div>
     <form class="forms" id="form1">
         <div class="divmin-single">
             <input type="radio" name="toolname" id="tool-name-11" value="激光器"></input><label for="tool-name-11">激光器</label>
@@ -46,7 +46,7 @@
             <input type="radio" name="toolname" id="tool-name-16" value="信号发生器"></input><label for="tool-name-16">信号发生器</label>
             <input type="radio" name="toolname" id="tool-name-17" value="CCD"></input><label for="tool-name-17">CCD</label>
         </div>
-
+        <div class="display"><h3>按器件型号查询</h3></div></br>
         <div class="divmin"
             <span><b>&nbsp请输入器件型号：</b></span>
             <input type="text" name="ids"></input>
@@ -116,7 +116,7 @@
             <input type="radio" name="toolname" id="tool-name-34" value="针孔"></input><label for="tool-name-34">针孔</label>
             <input type="radio" name="toolname" id="tool-name-35" value="扳手套件"></input><label for="tool-name-35">扳手</label>
             <input type="radio" name="toolname" id="tool-name-36" value="螺丝套件"></input><label for="tool-name-36">螺丝</label>
-            <input type="radio" name="toolname" id="tool-name-37" value="激光器"></input><label for="tool-name-37">激光器</label>
+            <!-- <input type="radio" name="toolname" id="tool-name-37" value="激光器"></input><label for="tool-name-37">激光器</label> -->
             <input type="radio" name="toolname" id="tool-name-38" value="其他"></input><label for="tool-name-38">其他</label>
         </div>
 
