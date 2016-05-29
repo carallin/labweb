@@ -1,8 +1,8 @@
 <?php
 //Mariadb information
 $servername="localhost";
-$username="root";
-$password="carallen";
+$username="QPL";
+$password="wys";
 //connect to Mariadb
 try{
   $conn=new PDO("mysql:host=$servername;dbname=Lab",$username,$password);
