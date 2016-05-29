@@ -136,9 +136,20 @@ section {
     display: inline-block;
     min-width: 400px;
     width: 45%;
-    margin: 10px 20px 30px 20px;
+    margin: 5px 0 10px 20px;
     border: none;
     border-radius: 10px;
+    background-color:#FFE6CC;
+    /*float: left;*/
+}
+.divmin-single {
+    /*min-width: 400px;*/
+    width: 92%;
+    margin: 10px 20px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 10px;
+    background-color:#FFE6CC;
     /*float: left;*/
 }
 .divmin .odd {
@@ -152,7 +163,13 @@ section {
     padding: 10px;
     margin: 0;
 }
-
+.divmin input[type="text"] {
+    text-align: left;
+    padding: 8px 4px;
+    margin: 12px;
+    background-color: #fffaf0;
+    border-radius: 5px;
+}
 .divmin input[type="checkbox"],.divmin input[type="radio"]{
     padding: 14px 16px;
     margin: 10px;
@@ -171,7 +188,8 @@ section {
     display: inline-block;
     clear: both;
     float: right;
-    margin: -15px 5% 0 0;
+    margin: 0 25% 0 0;
+    /*margin: -5px auto;*/
 /*    border: 1px solid black;*/
 }
 
@@ -320,8 +338,4 @@ aside {
 .btn:active {
     background-color: rgb(245,200,224);
     transform: translateY(6px);
-}
-
-.divmin {
-    background-color:rgb(255,230,204);
 }

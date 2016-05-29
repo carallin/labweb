@@ -23,7 +23,7 @@ function divShow(str) {
     btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
     for (var i = 0; i < btnN.length; i++) {
         if (btnN[i]==str) {
-            document.getElementById(btnN[i]).style.display="inline-block";
+            document.getElementById(btnN[i]).style.display="block";
         }
         else
             document.getElementById(btnN[i]).style.display="none";
@@ -44,7 +44,7 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1").submit(function(){
-    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options = {
       url: 'query.php',
       type: 'post',
@@ -63,6 +63,10 @@ $(document).ready(function () {
     $(':radio:checked').each(function () {
         str = str + $(this).val()+" ";
     });
+    if ($('#form1 input:text').val()) {
+      str = str + "ID=" + $('input:text').val();
+      $('input:text').val("").focus();
+    };
     $("#selected").html("<p>"+str+"</p>");
     $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
@@ -70,7 +74,7 @@ $(document).ready(function () {
   });
 
     $("#form2").submit(function(){
-    //$("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form2").serialize());
     var options2 = {
       url: 'query.php',
       type: 'post',
@@ -83,6 +87,13 @@ $(document).ready(function () {
     $(':radio:checked').each(function () {
         str2 = str2 + $(this).val()+" ";
     });
+    // if ($("#form2 input:number")) {
+    //   str2 = str2 + $('#form2 input:number').val();
+    // } else {
+    //   str2 = str2;
+    // };
+    // str2 = str2 + $('#form2 input:number').val();
+    // $('#form2 input:number').val("");
     $("#selected").html("<p>"+str2+"</p>");
     $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();

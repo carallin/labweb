@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-    <title>QPL Lab Management System beta 1.0-20160326</title>
+    <title>QPL Lab Management System beta 1.0-eg20160326</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="CSS/basic.css">
 </head>
@@ -17,6 +17,7 @@
         <li><a href="index.html">首页</a></li>
         <li><a href="query.html" class="active-page">查询</a></li>
         <li><a href="insert.html">添加</a></li>
+        <li><a href="doc.html">说明书</a></li>
     </ul>
 </nav>
 
@@ -36,35 +37,19 @@
 <div id="section-2-1" class="section-div"><!--  style="display: none;" -->
     <div class="display"><h3>大型仪器</h3></div>
     <form class="forms" id="form1">
-        <input type="hidden" name="category" value="大型仪器"></input>
-        <div class="divmin odd">
-            <p><b>仪器名称：</b></p>
+        <div class="divmin-single">
             <input type="radio" name="toolname" id="tool-name-11" value="激光器"></input><label for="tool-name-11">激光器</label>
             <input type="radio" name="toolname" id="tool-name-12" value="频谱仪"></input><label for="tool-name-12">频谱仪</label>
             <input type="radio" name="toolname" id="tool-name-13" value="示波器"></input><label for="tool-name-13">示波器</label>
             <input type="radio" name="toolname" id="tool-name-14" value="电源"></input><label for="tool-name-14">电源</label>
+            <input type="radio" name="toolname" id="tool-name-15" value="探测器"></input><label for="tool-name-15">探测器</label>
+            <input type="radio" name="toolname" id="tool-name-16" value="信号发生器"></input><label for="tool-name-16">信号发生器</label>
+            <input type="radio" name="toolname" id="tool-name-17" value="CCD"></input><label for="tool-name-17">CCD</label>
         </div>
 
-        <div class="divmin even">
-            <p><b>仪器品牌：</b></p>
-            <input type="radio" name="brand" id="brand-11" value="Thorlab"></input><label for="brand-11">Thorlab</label>
-            <input type="radio" name="brand" id="brand-12" value="Agliant"></input><label for="brand-12">Agliant</label>
-            <input type="radio" name="brand" id="brand-13" value="FOCtek"></input><label for="brand-13">FOCtek</label>
-            <input type="radio" name="brand" id="brand-14" value="NewPort"></input><label for="brand-14">NewPort</label>
-            <input type="radio" name="brand" id="brand-15" value="MT-optics"></input><label for="brand-15">MT-optics</label>
-        </div>
-
-        <div class="divmin odd">
-            <p><b>购买人：</b></p>
-            <input type="radio" name="owner" id="owner-11" value="徐慧超"></input><label for="owner-11">徐慧超</label>
-            <input type="radio" name="owner" id="owner-12" value="王云松"></input><label for="owner-12">王云松</label>
-            <input type="radio" name="owner" id="owner-13" value="胥亮"></input><label for="owner-13">胥亮</label>
-            <input type="radio" name="owner" id="owner-14" value="张傲男"></input><label for="owner-14">张傲男</label>
-        </div>
-
-        <div class="divmin even"><!--  style="height: 110px;" -->
-            <p><b>仪器购买时间：</b></p>
-            <input type="number" name="timeyear" min="2013" max="2021" placeholder="2016">年份</input>
+        <div class="divmin"
+            <span><b>&nbsp请输入器件型号：</b></span>
+            <input type="text" name="ids"></input>
         </div>
 
         <div class="submit">
@@ -109,7 +94,7 @@
 
         <div class="divmin"><!--  style="height: 110px;" -->
             <p><b>仪器购买时间：</b></p>
-            <input type="number" name="timeyear" min="2013" max="2021" placeholder="2016">年份</input>
+            <input type="number" name="timeyear" min="2013" max="2021" placeholder="eg2016">年份</input>
         </div>
 
         <div class="submit">
@@ -154,7 +139,7 @@
 
         <div class="divmin" ><!-- style="height: 110px;" -->
             <p><b>仪器购买时间：</b></p>
-            <input type="number" name="timeyear" min="2013" max="2021" placeholder="2016">年份</input>
+            <input type="number" name="timeyear" min="2013" max="2021" placeholder="eg2016">年份</input>
         </div>
 
         <div class="submit">
@@ -197,7 +182,7 @@
 
         <div class="divmin"><!--  style="height: 110px;" -->
             <p><b>仪器购买时间：</b></p>
-            <input type="number" name="timeyear" min="2013" max="2021" placeholder="2016">年份</input>
+            <input type="number" name="timeyear" min="2013" max="2021" placeholder="eg2016">年份</input>
         </div>
 
         <div class="submit">
