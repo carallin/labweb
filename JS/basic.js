@@ -16,8 +16,8 @@ function divShow(str) {
     var jsonbook=JSON.parse(jsonbook0);*/
     // //alert(jsonbook[0].title);
     // alert(jsonbook);
-    document.getElementById('selected').innerHTML = "<p>这里将显示你选择的信息</p>";
-    document.getElementById('phpBack-p').innerHTML = "这里将显示服务器返回的查询结果";
+    document.getElementById('selected').innerHTML = "<p>> 这里将显示你选择的信息</p>";
+    document.getElementById('phpBack-p').innerHTML = "> 这里将显示服务器返回的查询结果";
     document.getElementById('search-table').style.display = "none";
     var btnN=Array(4);
     btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
@@ -79,7 +79,7 @@ $(document).ready(function () {
       success: jsonBack
     };
     $.ajax(options2);
-    var str2 = "你选择的搜索条件是：    ";
+    var str2 = "你选择的搜索条件是：光学元件 ";
     $(':radio:checked').each(function () {
         str2 = str2 + $(this).val()+" ";
     });
@@ -99,7 +99,7 @@ $(document).ready(function () {
       success: jsonBack
     };
     $.ajax(options3);
-    var str3 = "你选择的搜索条件是：    ";
+    var str3 = "你选择的搜索条件是：光机平台 ";
     $(':radio:checked').each(function () {
         str3 = str3 + $(this).val()+" ";
     });
@@ -119,7 +119,7 @@ $(document).ready(function () {
       success: jsonBack
     };
     $.ajax(options4);
-    var str4 = "你选择的搜索条件是：    ";
+    var str4 = "你选择的搜索条件是：电子元件 ";
     $(':radio:checked').each(function () {
         str4 = str4 + $(this).val()+" ";
     });

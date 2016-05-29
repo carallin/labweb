@@ -134,21 +134,18 @@ section {
 }
 .divmin {
     display: inline-block;
-    /*float: left;*/
-/*    width: 250px;*/
-
     min-width: 400px;
     width: 45%;
-/*    height: 150px;*/
     margin: 10px 20px 30px 20px;
     border: none;
     border-radius: 10px;
-    float: left;
+    /*float: left;*/
 }
-/*.divmin:nth-child(2n) {
+.divmin .odd {
   clear: left;
+  float: left;
 }
-.divmin:nth-child(2n+1) {
+/*.divmin .even {
   float: left;
 }*/
 .divmin p {
@@ -219,15 +216,19 @@ input[type="checkbox"]:checked + label,input[type="radio"]:checked + label {
 
 
 table {
-/*    border: 1px solid black;*/
+    border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
     line-height: 120%;
     margin: 10px;
 }
 table th {
+  border: 1px solid black;
     padding: 8px;
     background-color: #ddd;
+}
+table td {
+  border: 1px solid black;
 }
 
 /***************从数据库返回的 显示结果的部分******************************/
@@ -258,8 +259,8 @@ table th {
 }
 select {
     border: none;
-    padding: 6px;
-    font-size: 12px;
+    padding: 8px 4px;
+    font-size: 14px;
 }
 .insert-table input {
     border: none;
