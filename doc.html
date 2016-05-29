@@ -30,8 +30,24 @@
 
 <section class="introduction">
     <h2>实验室器材管理系统使用说明</h2>
-    <p>此系统版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093</p>
-    <p>此系统版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093版权所有&nbsp;©&nbsp;南京大学&nbsp;量子光学实验室&nbsp;&nbsp;地址:江苏省南京市鼓楼区汉口路22号南京大学&nbsp;&nbsp;邮编:210093</p>
+    <!DOCTYPE html>
+
+    <textarea id="text-input" oninput="this.editor.update()"
+              rows="6" cols="60">Type **Markdown** here.</textarea>
+    <div id="preview"> </div>
+    <script src="lib/markdown.js"></script>
+    <script>
+      function Editor(input, preview) {
+        this.update = function () {
+          preview.innerHTML = markdown.toHTML(input.value);
+        };
+        input.editor = this;
+        this.update();
+      }
+      var $ = function (id) { return document.getElementById(id); };
+      new Editor($("text-input"), $("preview"));
+    </script>
+
 </section>
 
 <footer>
