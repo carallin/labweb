@@ -52,6 +52,22 @@ function divShow(str) {
 // });
 
 $(document).ready(function () {
+  $("#form1 :radio").change(function () {
+    $.ajax({
+      url: 'queryAll.php',
+      type: 'post',
+      //dataType: 'json',
+      data: '',
+      success: jsonBack
+    });
+    var str = "你选择的搜索条件是： ";
+    $(':radio:checked').each(function () {
+        str = str + $(this).val()+" ";
+    });
+    $("#selected").html("<p>"+str+"</p>");
+    $(":radio").attr('checked',false);
+  });
+
   $("#form1").submit(function(){
     // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options1 = {
@@ -150,12 +166,22 @@ $(document).ready(function () {
   });
 
   $("#form-insert").submit(function(){
-  $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form-insert").serialize());
+    var insertData = $("#form-insert").serialize();
+    var insertDataArray = insertData.split(/[&=]/);
+    // var insertDataArray =decodeURI(insertData.split(/[&=]/));
+    // var insertDataObject = insertDataArray;
+    var insertDataString = "填入的信息为：<br/>";
+    for (var i = 0; i < insertDataArray.length/2; i++) {
+      insertDataString = insertDataString + decodeURI(insertDataArray[i*2]) + ':' + decodeURI(insertDataArray[i*2+1]) + '<br/>';
+    };
+    // var insertDataString = insertDataArray[1] + '|' +insertDataArray[3] + '|' + insertDataArray[5] + '|' + insertDataArray[7] + '|' +
+    //   insertDataArray[9] + '|' + insertDataArray[11] + '|' + insertDataArray[13] + '|' + insertDataArray[15] + '|' + insertDataArray[17] + '|' ;
+    $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+ insertDataString);
   var options5 = {
     url: 'insert.php',
     type: 'post',
     //dataType: 'json',
-    data: $("#form-insert").serialize(),
+    data: insertData,
     success: function (data) {
        $("#insert-phpBack-p").html(data);
      }
@@ -163,7 +189,10 @@ $(document).ready(function () {
   $.ajax(options5);
 
   return false;
-});
+  });
+
+
+
 });
 
 function jsonBack (data){
@@ -188,27 +217,7 @@ function jsonBack (data){
       $("#search-table").hide();
       $("#phpBack-p").html("没有符合该搜索条件的结果，请重新选择。");
     }
-
-    //***************用来判断是否有符合条件的查询结果*********************************
-    // var msg = jsonObject[jsonObject.length-1].msg;
-    // if (msg) {
-    //   $("#phpBack-p").html("一共查询到 "+jsonObject.length+" 条结果:");
-    //   $("#search-table").show();
-    //   for (var i = 0; i < jsonObject.length; i++) {
-    //     newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
-    //     +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
-    //     $("#search-table tr:last").after(newRow[i]);
-    //   }
-    // } else {
-    //   $("#phpBack-p").html("没有符合该搜索条件的结果，请重新选择。");
-    // }
-
-    // for (var i = 0; i < jsonObject.length; i++) {
-    //   newRow[i] = "<tr><td>0"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].detail+"</td><td>"+jsonObject[i].ids
-    //   +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].time+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
-    //   $("#search-table tr:last").after(newRow[i]);
-    // }
-}
+};
 
 
 //不能实现阻止submit提交数据-----------放弃

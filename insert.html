@@ -42,15 +42,16 @@
                 <th>序号</th><th>类型</th><th>名称</th><th>型号</th><th>详细说明</th><th>品牌</th><th>购买人</th><th>个数</th><th>购买时间</th><th>保修(年)</th>
               </tr><tr>
                 <td>1</td>
-                <td><select name="category"><option value="大型仪器">大型仪器</option><option value="光学元件">光学元件</option><option value="电子元件">电子元件</option><option value="光机">光机</option>'</td>
-                <td><input type='text' name='toolname' size='8'></input></td>
+                <td><select name="category"><option value="大型仪器">大型仪器</option><option value="光学元件" checked>光学元件</option>
+                  <option value="电子元件">电子元件</option><option value="光机/平台">光机平台</option><option value="其他">其他</option></td>
+                <td><input type='text' name='toolname' size='8' required></input></td>
                 <td><input type='text' name='ids' size='20'></input></td>
-                <td><input type='text' name='detail' style='width:252px;'/></td>
-                <td><input type='text' name='brand' size='16'/></td>
-                <td><input type='text' name='owner' size='6'/></td>
-                <td><input type='number' name='number' min='1' style='width:52px;'/></td>
-                <td><input type='date' name='time'  style='width:122px;'/></td>
-                <td><input type='number' name='warranty' min='0' step='0.1' style='width:52px;'/></td>
+                <td><input type='text' name='detail' style='width:252px;'></input></td>
+                <td><input type='text' name='brand' size='16'></input></td>
+                <td><input type='text' name='owner' size='6' required></input></td>
+                <td><input type='number' name='number' min='1' style='width:52px;' required></input></td>
+                <td><input type='date' name='time'  style='width:122px;'></input></td>
+                <td><input type='number' name='warranty' min='0' step='0.1' style='width:52px;'></input></td>
               </tr>
 
             <!-- <script>
@@ -82,7 +83,15 @@
 
     </form>
 <!-- </div> -->
-<div class="div-massage-select" ><p id = "insert-msg">> 这里将显示你选择的信息</p></div>
+<div class="div-massage-select" >
+  <p id = "insert-msg">> 提交后，这里将再次显示你添加的信息，请认真核对！！！</p>
+  <table class="normal-table" id="insert-table" style="display:none;"><!-- style="display:none;" -->
+      <tr>
+          <th>序号</th><th>类型</th><th>名称</th><th>型号</th><th>详细说明</th><th>品牌</th><th>购买人</th><th>个数</th>
+          <th>购买时间</th><th>保修(年)</th>
+      </tr>
+  </table>
+</div>
 <div class="div-massage-back" id="insert-phpBack">
     <p id="insert-phpBack-p">> 这里将显示服务器返回的查询结果</p>
 
@@ -96,6 +105,5 @@
     <script src="JS/jquery-1.12.2.min.js"></script>
     <script src="JS/jquery.form.js"></script>
     <script src="JS/basic.js"></script>
-    <script src="JS/ajax.js"></script>
 </body>
 </html>

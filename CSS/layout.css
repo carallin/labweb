@@ -10,6 +10,11 @@ h2 {
     line-height: 150%;
     margin: 10px 10px 20px 10px;
 }
+span {
+  font-family: "Microsoft YaHei", "Segoe UI Light", "Segoe UI", "Heiti SC";
+  padding: 5px;
+  background-color: #ddd;
+}
 header {
     padding: 10px;
     background-color: #fffcf2;
@@ -292,6 +297,7 @@ table td {
 
 /***************从数据库返回的 显示结果的部分******************************/
 .div-massage-select {
+  clear: both;
     padding: 10px;
     margin: 5px 10px;
     font-weight: bold;
