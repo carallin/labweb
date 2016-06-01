@@ -53,11 +53,12 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1 :radio").change(function () {
+         $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+'toolname='+ $("#form1 :radio:checked").val());
     $.ajax({
       url: 'queryAll.php',
       type: 'post',
       //dataType: 'json',
-      data: 'toolname = $("#form1 :radio:checked").val()',
+      data: 'toolname ='+ $("#form1 :radio:checked").val(),
       success: jsonBack
     });
     var str = "你选择的搜索条件是： ";
