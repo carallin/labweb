@@ -23,18 +23,15 @@
 </nav>
 
 <!-----------------------------------------查询的第一个页面---------------------------------------------->
-<aside>
+<!-- <aside>
     <div class="aside" id="aside-2">
-        <button class="btn" onclick="">大型仪器</button></br>
-        <button class="btn" onclick="">光学元件</button></br>
-        <button class="btn" onclick="">光&nbsp&nbsp机</button></br>
-        <button class="btn" onclick="">电子元件</button></br>
+        <a class="btn" href="insert.html">继续添加</a></br>
     </div>
-</aside>
+</aside> -->
 
 
 <!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
-<section id="section-3">
+<section class="single-section" id="section-3">
 <!-- <div class="insert-div" id="table-1"> -->
     <form id="form-insert">
         <table class="insert-table" id="insert-table">
@@ -44,14 +41,14 @@
                 <td>1</td>
                 <td><select name="category"><option value="大型仪器">大型仪器</option><option value="光学元件" checked>光学元件</option>
                   <option value="电子元件">电子元件</option><option value="光机/平台">光机平台</option><option value="其他">其他</option></td>
-                <td><input type='text' name='toolname' size='8' required></input></td>
+                <td><input type='text' name='toolname' size='20' required></input></td>
                 <td><input type='text' name='ids' size='20'></input></td>
-                <td><input type='text' name='detail' style='width:252px;'></input></td>
+                <td><input type='text' name='detail' style='width:400px;'></input></td>
                 <td><input type='text' name='brand' size='16'></input></td>
-                <td><input type='text' name='owner' size='6' required></input></td>
-                <td><input type='number' name='number' min='1' style='width:52px;' required></input></td>
+                <td><input type='text' name='owner' size='9' required></input></td>
+                <td><input type='number' name='number' min='1' style='width:82px;' required></input></td>
                 <td><input type='date' name='time'  style='width:122px;'></input></td>
-                <td><input type='number' name='warranty' min='0' step='0.1' style='width:52px;'></input></td>
+                <td><input type='number' name='warranty' min='0' step='0.1' style='width:62px;'></input></td>
               </tr>
 
             <!-- <script>
@@ -84,7 +81,7 @@
     </form>
 <!-- </div> -->
 <div class="div-massage-select" >
-  <p id = "insert-msg">> 提交后，这里将再次显示你添加的信息，请认真核对！！！</p>
+  <p id = "insert-msg">> 提交后，这里将再次显示你添加的信息，<span class="red">请认真核对！！！</span></p>
   <table class="normal-table" id="insert-table" style="display:none;"><!-- style="display:none;" -->
       <tr>
           <th>序号</th><th>类型</th><th>名称</th><th>型号</th><th>详细说明</th><th>品牌</th><th>购买人</th><th>个数</th>
