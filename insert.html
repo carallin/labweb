@@ -36,23 +36,34 @@
 <!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
 <section id="section-3">
 <!-- <div class="insert-div" id="table-1"> -->
-    <form>
+    <form id="form-insert">
         <table class="insert-table" id="insert-table">
             <tr>
-                <th>序号</th><th>类型</th><th>名称</th><th>详细名称</th><th>型号</th><th>品牌</th><th>购买人</th><th>个数</th><th>购买时间</th><th>保修(年)</th>
-            </tr>
+                <th>序号</th><th>类型</th><th>名称</th><th>型号</th><th>详细说明</th><th>品牌</th><th>购买人</th><th>个数</th><th>购买时间</th><th>保修(年)</th>
+              </tr><tr>
+                <td>1</td>
+                <td><select name="category"><option value="大型仪器">大型仪器</option><option value="光学元件">光学元件</option><option value="电子元件">电子元件</option><option value="光机">光机</option>'</td>
+                <td><input type='text' name='toolname' size='8'></input></td>
+                <td><input type='text' name='ids' size='20'></input></td>
+                <td><input type='text' name='detail' style='width:252px;'/></td>
+                <td><input type='text' name='brand' size='16'/></td>
+                <td><input type='text' name='owner' size='6'/></td>
+                <td><input type='number' name='number' min='1' style='width:52px;'/></td>
+                <td><input type='date' name='time'  style='width:122px;'/></td>
+                <td><input type='number' name='warranty' min='0' step='0.1' style='width:52px;'/></td>
+              </tr>
 
-            <script>
+            <!-- <script>
             //var j = document.getElementById("inset-table").rows.length;
                 var newTba,newTbb;
                 newTba = document.getElementById("insert-table");
                 newTbb =  newTba.insertRow(1);
-                for (var i = 1; i < 9; i++) {
+                for (var i = 1; i < 2; i++) {
                     newTbb.insertCell(0).innerHTML = "0"+ i;
                     newTbb.insertCell(1).innerHTML = '<select name="category"><option value="大型仪器">大型仪器</option><option value="光学元件">光学元件</option><option value="电子元件">电子元件</option><option value="光机">光机</option>';
                     newTbb.insertCell(2).innerHTML = "<input type='text' name='toolname' size='8'/>";
-                    newTbb.insertCell(3).innerHTML = "<input type='text' name='detail'/>";
-                    newTbb.insertCell(4).innerHTML = "<input type='text' name='ids' size='20'/>";
+                    newTbb.insertCell(3).innerHTML = "<input type='text' name='ids' size='20'/>";
+                    newTbb.insertCell(4).innerHTML = "<input type='text' name='detail' style='width:252px;'/>";
                     newTbb.insertCell(5).innerHTML = "<input type='text' name='brand' size='16'/>";
                     newTbb.insertCell(6).innerHTML = "<input type='text' name='owner' size='6'/>";
                     newTbb.insertCell(7).innerHTML = "<input type='number' name='number' min='1' style='width:52px;'/>";
@@ -60,8 +71,10 @@
                     newTbb.insertCell(9).innerHTML = "<input type='number' name='warranty' min='0' step='0.1' style='width:52px;'/>";
                     newTbb =  newTba.insertRow(i+1);
                 }
-            </script>
+            </script> -->
         </table>
+        <!-- <input type='text' name='toolname' size='8'></input>
+        <input type='text' name='ids' size='20'></input> -->
         <div class="submit">
             <input class="btn" type="reset" value="重置"></input>
             <input class="btn" type="submit" value="提交"></input>
@@ -69,6 +82,11 @@
 
     </form>
 <!-- </div> -->
+<div class="div-massage-select" ><p id = "insert-msg">> 这里将显示你选择的信息</p></div>
+<div class="div-massage-back" id="insert-phpBack">
+    <p id="insert-phpBack-p">> 这里将显示服务器返回的查询结果</p>
+
+</div>
 </section>
 <!-- <section> -->
 <footer>
@@ -78,5 +96,6 @@
     <script src="JS/jquery-1.12.2.min.js"></script>
     <script src="JS/jquery.form.js"></script>
     <script src="JS/basic.js"></script>
+    <script src="JS/ajax.js"></script>
 </body>
 </html>

@@ -53,7 +53,7 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1").submit(function(){
-    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options1 = {
       url: 'queryAll.php',
       type: 'post',
@@ -83,7 +83,7 @@ $(document).ready(function () {
   });
 
     $("#form2").submit(function(){
-    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form2").serialize());
+    // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form2").serialize());
     var options2 = {
       url: 'query.php',
       type: 'post',
@@ -110,7 +110,7 @@ $(document).ready(function () {
   });
 
     $("#form3").submit(function(){
-    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+    // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options3 = {
       url: 'query.php',
       type: 'post',
@@ -130,7 +130,7 @@ $(document).ready(function () {
   });
 
     $("#form4").submit(function(){
-    $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
+     $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form4").serialize());
     var options4 = {
       url: 'query.php',
       type: 'post',
@@ -148,6 +148,22 @@ $(document).ready(function () {
     $("#search-table tr:gt(0)").remove();
     return false;
   });
+
+  $("#form-insert").submit(function(){
+  $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form-insert").serialize());
+  var options5 = {
+    url: 'insert.php',
+    type: 'post',
+    //dataType: 'json',
+    data: $("#form-insert").serialize(),
+    success: function (data) {
+       $("#insert-phpBack-p").html(data);
+     }
+  };
+  $.ajax(options5);
+
+  return false;
+});
 });
 
 function jsonBack (data){

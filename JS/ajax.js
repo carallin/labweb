@@ -1,16 +1,18 @@
 $(document).ready(function () {
-  $("#form1").submit(function(){
-    var options = {
-      url: 'test1.php',
+
+  $("#form-insert").submit(function(){
+    var options8 = {
+      url: 'insert.php',
       type: 'post',
-      dataType: 'text',
-      data: $("#form1").serialize(),
+      dataType: 'json',
+      data: $("#form-insert").serialize(),
       success: function (data) {
-        $("#phpBack").text(data);
+        $("#insert-phpBack-p").html(data);
       }
     };
-    $.ajax(options);
+    $.ajax(options8);
     return false;
+    $("#insert-msg").html($("#form-insert").serialize());
   });
 });
 
