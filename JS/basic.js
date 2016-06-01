@@ -53,7 +53,7 @@ function divShow(str) {
 
 $(document).ready(function () {
   $("#form1 :radio").change(function () {
-         $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+'toolname='+ encodeURI($("#form1 :radio:checked").val()));
+        //  $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+'toolname='+ encodeURI($("#form1 :radio:checked").val()));
     $.ajax({
       url: 'php/queryAll.php',
       type: 'post',
@@ -152,7 +152,7 @@ $(document).ready(function () {
   });
 
     $("#form4").submit(function(){
-     $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form4").serialize());
+    //  $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form4").serialize());
     var options4 = {
       url: 'php/query.php',
       type: 'post',
@@ -191,13 +191,21 @@ $(document).ready(function () {
     success: function (data) {
        $("#insert-phpBack-p").html(data);
      }
+    // success: insertBack
   };
   $.ajax(options5);
-
   return false;
   });
 
-
+  // $("#confirm-form").submit(function(){
+  //   $.ajax({
+  //     url: php/,
+  //     type: 'post';
+  //     data: $("#confirm-form").serialize(),
+  //     success: isDelete
+  //   });
+  //   return false;
+  // });
 
 });
 
@@ -225,7 +233,31 @@ function jsonBack (data){
     }
 };
 
+function insertBack (data){
+    var jsonObject = JSON.parse(data);
 
+    if (jsonObject.length > 0) {
+      $("#insert-msg").html('以下是刚刚添加的信息，<span class="red">请认真核对是否正确！！！</span>:');
+      $("#insert-table").show();
+      for (var i = 0; i < jsonObject.length; i++) {
+        newRow[i] = "<tr><td>"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].ids+"</td><td>"+jsonObject[i].detail
+        +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].buytime+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
+        $("#search-table tr:last").after(newRow[i]);
+      };
+      $("#confirm-form").show();
+
+    } else {
+      $("#insert-table").hide();
+      $("#confirm-form").hide();
+      $("#insert-msg").html("不能与服务器取得连接，插入失败！");
+    };
+};
+
+function isDelete(data) {
+  $("#insert-msg").html(data);
+  $("#insert-table").hide();
+  $("#confirm-form").hide();
+}
 //不能实现阻止submit提交数据-----------放弃
 /*function postData(formId) {
     //document.getElementById("phpBack").innerHTML="此处显示服务器返回信息";

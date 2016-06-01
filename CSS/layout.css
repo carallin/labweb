@@ -18,6 +18,9 @@ span {
 .red {
     color: red;
 }
+.right {
+  float: right;
+}
 header {
     padding: 10px;
     background-color: #fffcf2;

@@ -32,7 +32,6 @@
 
 <!--------------------------------选择完大类型之后的子集页面---------------------------------------------->
 <section class="single-section" id="section-3">
-<!-- <div class="insert-div" id="table-1"> -->
     <form id="form-insert">
         <table class="insert-table" id="insert-table">
             <tr>
@@ -71,15 +70,12 @@
                 }
             </script> -->
         </table>
-        <!-- <input type='text' name='toolname' size='8'></input>
-        <input type='text' name='ids' size='20'></input> -->
         <div class="submit">
             <input class="btn" type="reset" value="重置"></input>
             <input class="btn" type="submit" value="提交"></input>
         </div>
 
     </form>
-<!-- </div> -->
 <div class="div-massage-select" >
   <p id = "insert-msg">> 提交后，这里将再次显示你添加的信息，<span class="red">请认真核对！！！</span></p>
   <table class="normal-table" id="insert-table" style="display:none;"><!-- style="display:none;" -->
@@ -88,11 +84,17 @@
           <th>购买时间</th><th>保修(年)</th>
       </tr>
   </table>
-</div>
-<div class="div-massage-back" id="insert-phpBack">
-    <p id="insert-phpBack-p">> 这里将显示服务器返回的查询结果</p>
 
+  <form class="right" id="confirm-form" style="display:none;">
+      <input type="radio" name="confirm" id="confirm-2" required></input><label for="confirm-2">填写错误，舍弃修改</label>
+      <input type="radio" name="confirm" id="confirm-1" required></input><label for="confirm-1">确定正确，保留修改</label><br/>
+      <input class="btn" type="submit" value="提交"></input>
+  </form>
 </div>
+
+<!-- <div class="div-massage-back" id="insert-phpBack">
+    <p id="insert-phpBack-p">> 这里将显示服务器返回的查询结果</p>
+</div> -->
 </section>
 <!-- <section> -->
 <footer>
