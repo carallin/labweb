@@ -58,8 +58,8 @@ if (array_key_exists('owner',$arr_Query)){
 else {$sql_owner=" ";}
 
 if (array_key_exists('number',$arr_Query)){
-  $number=$arr_Query["number"];
-  $sql_number=" AND number='$number'";
+  $number=(int)$arr_Query["number"];
+  $sql_number=" AND number=$number";
 }
 else {$sql_number=" ";}
 
@@ -70,8 +70,8 @@ if ($arr_Query["timeyear"]!=NULL){
 else {$sql_timeyear=" ";}
 
 if (array_key_exists('warranty',$arr_Query)){
-  $warranty=$arr_Query["warranty"];
-  $sql_warranty=" AND warranty='$warranty'";
+  $warranty=(int)$arr_Query["warranty"];
+  $sql_warranty=" AND warranty=$warranty";
 }
 else {$sql_warranty=" ";}
 
@@ -81,5 +81,6 @@ $result=$conn->query($sql);
 
 $row=$result->fetchAll();
 $output=json_encode($row);
+$conn = null;
 print($output);
 ?>
