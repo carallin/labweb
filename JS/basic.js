@@ -57,7 +57,7 @@ $(document).ready(function () {
       url: 'queryAll.php',
       type: 'post',
       //dataType: 'json',
-      data: '',
+      data: 'toolname = $("#form1 :radio:checked").val()',
       success: jsonBack
     });
     var str = "你选择的搜索条件是： ";
