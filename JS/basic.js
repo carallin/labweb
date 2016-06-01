@@ -54,7 +54,7 @@ function divShow(str) {
 $(document).ready(function () {
   $("#form1 :radio").change(function () {
     $.ajax({
-      url: 'queryAll.php',
+      url: 'php/queryAll.php',
       type: 'post',
       //dataType: 'json',
       data: '',
@@ -71,7 +71,7 @@ $(document).ready(function () {
   $("#form1").submit(function(){
     // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options1 = {
-      url: 'queryAll.php',
+      url: 'php/queryAll.php',
       type: 'post',
       //dataType: 'json',
       data: $("#form1").serialize(),
@@ -101,7 +101,7 @@ $(document).ready(function () {
     $("#form2").submit(function(){
     // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form2").serialize());
     var options2 = {
-      url: 'query.php',
+      url: 'php/query.php',
       type: 'post',
       //dataType: 'json',
       data: $("#form2").serialize(),
@@ -128,7 +128,7 @@ $(document).ready(function () {
     $("#form3").submit(function(){
     // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form1").serialize());
     var options3 = {
-      url: 'query.php',
+      url: 'php/query.php',
       type: 'post',
       //dataType: 'json',
       data: $("#form3").serialize(),
@@ -148,7 +148,7 @@ $(document).ready(function () {
     $("#form4").submit(function(){
      $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form4").serialize());
     var options4 = {
-      url: 'query.php',
+      url: 'php/query.php',
       type: 'post',
       //dataType: 'json',
       data: $("#form4").serialize(),
@@ -178,7 +178,7 @@ $(document).ready(function () {
     //   insertDataArray[9] + '|' + insertDataArray[11] + '|' + insertDataArray[13] + '|' + insertDataArray[15] + '|' + insertDataArray[17] + '|' ;
     $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+ insertDataString);
   var options5 = {
-    url: 'insert.php',
+    url: 'php/insert.php',
     type: 'post',
     //dataType: 'json',
     data: insertData,
