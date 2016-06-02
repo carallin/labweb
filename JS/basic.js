@@ -172,14 +172,13 @@ $(document).ready(function () {
 
   $("#form-insert").submit(function(){
     var insertData = $("#form-insert").serialize();
-    var insertDataArray = insertData.split(/[&=]/);
-    // var insertDataArray =decodeURI(insertData.split(/[&=]/));
-    // var insertDataObject = insertDataArray;
-    var insertDataString = "填入的信息为：<br/>";
-    for (var i = 0; i < insertDataArray.length/2; i++) {
-      insertDataString = insertDataString + decodeURI(insertDataArray[i*2]) + ':' + decodeURI(insertDataArray[i*2+1]) + '<br/>';
-    };
-    // $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+ insertDataString);
+    // var insertDataArray = insertData.split(/[&=]/);
+    //
+    // var insertDataString = "填入的信息为：<br/>";
+    // for (var i = 0; i < insertDataArray.length/2; i++) {
+    //   insertDataString = insertDataString + decodeURI(insertDataArray[i*2]) + ':' + decodeURI(insertDataArray[i*2+1]) + '<br/>';
+    // };
+    // // $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+ insertDataString);
   var options5 = {
     url: 'php/insert.php',
     type: 'post',
@@ -256,6 +255,9 @@ function isDelete(data) {
   $("#insert-msg").html(data);
   $("#insert-table-back").hide();
   $("#confirm-form").hide();
+  $("#form-insert :reset").trigger('click');
+  $("#confirm-form :radio").attr('checked',false);
+  // $("#confirm-form").reset();
 }
 //不能实现阻止submit提交数据-----------放弃
 /*function postData(formId) {

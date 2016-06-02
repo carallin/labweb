@@ -86,9 +86,12 @@
   </table>
 
   <form class="right" id="confirm-form" style="display:none;">
-      <input type="radio" name="confirm" id="confirm-2" value="no" required></input><label for="confirm-2">填写错误，舍弃修改</label>
-      <input type="radio" name="confirm" id="confirm-1" value="ok" required></input><label for="confirm-1">确定正确，保留修改</label><br/>
-      <input class="btn" type="submit" value="提交"></input>
+    <fieldset>
+      <legend>--请确认信息</legend>
+      <input type="radio" name="confirm" id="confirm-2" required></input><label for="confirm-2">填写错误，舍弃修改</label>
+      <input type="radio" name="confirm" id="confirm-1" required></input><label for="confirm-1">确定正确，保留修改</label><br/>
+      <input class="btn" type="submit" value="提交"><span class="red">提交后不可更改</span></input>
+    </fieldset>
   </form>
 </div>
 
