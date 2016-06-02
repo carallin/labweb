@@ -26,6 +26,8 @@ else {
   $sqlDelet="DELETE FROM equipments where rowid=$maxId";
   $deletCount=$conn->exec($sqlDelet);
 
+  $conn = null;
+
   echo "已成功取消刚添加的 ".$deletCount." 条记录，请重新插入！";
 }
 ?>
