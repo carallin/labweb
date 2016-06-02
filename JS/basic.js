@@ -40,16 +40,6 @@ function divShow(str) {
 // btn_22.onclick = divShow('section-2-2');
 // btn_23.onclick = divShow('section-2-3');
 // btn_24.onclick = divShow('section-2-4');
-//document.getElementById("phpBack").innerHTML="<p>此处显示服务器返回信息</p>";
-// $(function () {
-//   $("btn-section-2-5").click(function () {
-//     var options = {
-//       url: 'query.php',
-//       type: 'post',
-//       success:jsonBack;
-//     }
-//   });
-// });
 
 $(document).ready(function () {
   $("#form1 :radio").change(function () {
