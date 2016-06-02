@@ -312,6 +312,7 @@ table td {
 /***************从数据库返回的 显示结果的部分******************************/
 .div-massage-select {
   clear: both;
+  overflow: hidden;/*用于使插入页面的form能被外围块包含*/
     padding: 10px;
     margin: 5px 10px;
     font-weight: bold;
