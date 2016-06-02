@@ -59,7 +59,6 @@ $(document).ready(function () {
       type: 'post',
       //dataType: 'json',
       data: 'toolname='+ encodeURI($("#form1 :radio:checked").val()),
-      // data: $(form1)
       success: jsonBack
       // success: function (data) {
       //   $("#phpBack-p").html(data);
@@ -180,32 +179,31 @@ $(document).ready(function () {
     for (var i = 0; i < insertDataArray.length/2; i++) {
       insertDataString = insertDataString + decodeURI(insertDataArray[i*2]) + ':' + decodeURI(insertDataArray[i*2+1]) + '<br/>';
     };
-    // var insertDataString = insertDataArray[1] + '|' +insertDataArray[3] + '|' + insertDataArray[5] + '|' + insertDataArray[7] + '|' +
-    //   insertDataArray[9] + '|' + insertDataArray[11] + '|' + insertDataArray[13] + '|' + insertDataArray[15] + '|' + insertDataArray[17] + '|' ;
-    $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+ insertDataString);
+    // $("#insert-msg").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+ insertDataString);
   var options5 = {
     url: 'php/insert.php',
     type: 'post',
     //dataType: 'json',
     data: insertData,
-    success: function (data) {
-       $("#insert-phpBack-p").html(data);
-     }
-    // success: insertBack
+  //  success: function (data) {
+  //     $("#insert-msg").html(data);
+  //   }
+     success: insertBack
   };
   $.ajax(options5);
+  $("#insert-table-back tr:gt(0)").remove();
   return false;
   });
 
-  // $("#confirm-form").submit(function(){
-  //   $.ajax({
-  //     url: php/,
-  //     type: 'post';
-  //     data: $("#confirm-form").serialize(),
-  //     success: isDelete
-  //   });
-  //   return false;
-  // });
+  $("#confirm-form").submit(function(){
+    $.ajax({
+      url: 'php/confirm.php',
+      type: 'post',
+      data: $("#confirm-form").serialize(),
+      success: isDelete
+    });
+    return false;
+  });
 
 });
 
@@ -236,18 +234,19 @@ function jsonBack (data){
 function insertBack (data){
     var jsonObject = JSON.parse(data);
 
+    var newRow=["没有符合条件的结果"];
     if (jsonObject.length > 0) {
       $("#insert-msg").html('以下是刚刚添加的信息，<span class="red">请认真核对是否正确！！！</span>:');
-      $("#insert-table").show();
+      $("#insert-table-back").show();
       for (var i = 0; i < jsonObject.length; i++) {
         newRow[i] = "<tr><td>"+(i+1)+"</td><td>"+jsonObject[i].category+"</td><td>"+jsonObject[i].toolname+"</td><td>"+jsonObject[i].ids+"</td><td>"+jsonObject[i].detail
         +"</td><td>"+jsonObject[i].brand+"</td><td>"+jsonObject[i].owner+"</td><td>"+jsonObject[i].number+"</td><td>"+jsonObject[i].buytime+"</td><td>"+jsonObject[i].warranty+"</td></tr>";
-        $("#search-table tr:last").after(newRow[i]);
-      };
+        $("#insert-table-back tr:last").after(newRow[i]);
+      }
       $("#confirm-form").show();
 
     } else {
-      $("#insert-table").hide();
+      $("#insert-table-back").hide();
       $("#confirm-form").hide();
       $("#insert-msg").html("不能与服务器取得连接，插入失败！");
     };
@@ -255,7 +254,7 @@ function insertBack (data){
 
 function isDelete(data) {
   $("#insert-msg").html(data);
-  $("#insert-table").hide();
+  $("#insert-table-back").hide();
   $("#confirm-form").hide();
 }
 //不能实现阻止submit提交数据-----------放弃

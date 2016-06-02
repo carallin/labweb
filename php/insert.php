@@ -29,7 +29,7 @@ $timeyear=substr($buytime,0,4);
 $maxIdSQL="SELECT MAX(rowid) FROM Lab.equipments";
 $maxIdSQLResult=$conn->query($maxIdSQL);//get a PDOStatement
 $maxIdArr=$maxIdSQLResult->fetchAll();//get a Array
-$maxId=$maxIdArr[0][0];
+$maxId=$maxIdArr[0][0]+1;
 //echo $maxId;
 $resetAutoIncrement="ALTER TABLE Lab.equipments AUTO_INCREMENT=$maxId";
 $conn->exec($resetAutoIncrement);
