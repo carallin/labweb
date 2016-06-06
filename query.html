@@ -24,6 +24,7 @@
 
 <!-----------------------------------------查询的第一个页面---------------------------------------------->
 <aside id="aside-2">
+    <button class="btn" id="btn-section-2-5" onclick="divShow('section-2-5')">模糊查询</button></br>
     <button class="btn" id="btn-section-2-1" onclick="divShow('section-2-1')">型号查询</button></br>
     <button class="btn" id="btn-section-2-2" onclick="divShow('section-2-2')">光学元件</button></br>
     <button class="btn" id="btn-section-2-3" onclick="divShow('section-2-3')">光机平台</button></br>
@@ -48,9 +49,9 @@
             <input type="radio" name="toolname" id="tool-name-16" value="信号发生器"></input><label for="tool-name-16">信号发生器</label>
             <input type="radio" name="toolname" id="tool-name-17" value="CCD"></input><label for="tool-name-17">CCD</label>
         </div>
-        <div class="display"><h3>按器件型号查询</h3></div> <span> (若查询全部仪器，请直接点击"提交")</span></br>
+        <div class="display"><h3>按器件型号查询</h3></div> <span class="grey"> (若查询全部仪器，请直接点击"提交")</span></br>
         <div class="divmin"
-            <span><b>&nbsp请输入器件型号：</b></span>
+            <span class="grey"><b>&nbsp请输入器件型号：</b></span>
             <input type="text" name="ids"></input>
         </div>
 
@@ -59,6 +60,39 @@
             <input class="btn" type="submit" value="提交"></input>
         </div>
     </form>
+</div>
+
+<!---------------------- div id="section-2-5" 模糊查询-------------------->
+<div id="section-2-5" class="section-div" style="display: none;"><!--   -->
+    <div class="display"><h3>模糊查询</h3></div>
+      <form class="forms" id="form5">
+        <div class="divmin-center">
+          <!-- <div class="in-wrap"> -->
+            <span><b>&nbsp器件型号：</b></span><input type="text" name="ids" placeholder="请输入型号" autofocus="true"></input>
+            <span><b>&nbsp器件名称：</b></span><input type="text" name="toolname" placeholder="请输入器件名称"></input><br/>
+            <span><b>&nbsp详细说明：</b></span><input type="text" name="detail" placeholder="请输入详细说明"></input>
+            <span><b>&nbsp&nbsp&nbsp购买者&nbsp&nbsp：</b></span><input type="text" name="owner" placeholder="请输入购买人"></input>
+          <!-- </div> -->
+          <!-- <div class="in-wrap"> -->
+            <span>
+              <input class="btn-search" type="submit" value="检索"></input>
+            </span>
+          <!-- </div> -->
+        </div>
+      </form>
+      <!-- <form class="forms" id="form5">
+        <table class="warp-table" border="none">
+          <tr>
+            <th>型号</th><th>名称</th><th>详细说明</th><th>购买人</th>
+          </tr>
+          <tr>
+            <td><input type="text" name="ids" placeholder="请输入型号" autofocus="true"></input></td>
+            <td><input type="text" name="toolname" placeholder="请输入器件名称"></input></td>
+            <td><input type="text" name="detail" placeholder="请输入详细说明"></input></td>
+            <td><input type="text" name="owner" placeholder="请输入购买人"></input></td>
+          </tr>
+        </table>
+      </form> -->
 </div>
 <!---------------------- div id="section-2-2"光学元件 -------------------->
 <div id="section-2-2" class="section-div" style="display: none;">

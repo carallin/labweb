@@ -20,7 +20,7 @@ function divShow(str) {
     document.getElementById('phpBack-p').innerHTML = "> 这里将显示服务器返回的查询结果";
     document.getElementById('search-table').style.display = "none";
     var btnN=Array(4);
-    btnN=["section-2-1","section-2-2","section-2-3","section-2-4"];
+    btnN=["section-2-1","section-2-2","section-2-3","section-2-4","section-2-5"];
     for (var i = 0; i < btnN.length; i++) {
         if (btnN[i]==str) {
             document.getElementById(btnN[i]).style.display="block";
@@ -84,15 +84,37 @@ $(document).ready(function () {
         str1 = str1 + $(this).val()+" ";
     });
     if ($('#form1 input:text').val()) {
-      str1 = str1 + "ID=" + $('input:text').val();
-      $('input:text').val("").focus();
+      str1 = str1 + "ID=" + $('#form1 input:text').val();
+      $('#form1 input:text').val("").focus();
     };
     $("#selected").html("<p>"+str1+"</p>");
     $(":radio").attr('checked',false);
     $("#search-table tr:gt(0)").remove();
     return false;
   });
+// ***********************************************************模糊查找*ajax*****************************************************************
+  $("#form5").submit(function () {
+    $.ajax({
+      url: 'php/fuzQuery.php',
+      type: 'post',
+      data: $("#form5").serialize(),
+      success: jsonBack
+      //  success: function (data) {
+      //     $("#form5").html(data);
+      //   }
 
+    });
+    var str5 =  "你选择的搜索条件是：    ";
+    $("#form5 :text").each(function () {
+      str5 = str5 + $(this).val()+" ";
+    });
+    $("#form5 :text").val("");
+    $("#selected").html("<p>"+str5+"</p>");
+
+    $("#search-table tr:gt(0)").remove();
+    return false;
+  });
+// ***********************************************************模糊查找******************************************************************
     $("#form2").submit(function(){
     // $("#phpBack-p").html("这里将显示服务器返回的查询结果，加载中..."+"*****向服务器传送的数据为"+$("#form2").serialize());
     var options2 = {
