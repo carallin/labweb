@@ -34,6 +34,7 @@ $result=$conn->query($sql);
 
 $row=$result->fetchAll();
 $output=json_encode($row);
+$conn = null;
 print($output);
 //echo $sql;
 ?>

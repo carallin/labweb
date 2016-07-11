@@ -13,6 +13,12 @@ h2 {
 span {
   font-family: "Microsoft YaHei", "Segoe UI Light", "Segoe UI", "Heiti SC";
   padding: 5px;
+}
+.btn-span {
+  padding: 8px 5px;
+  background-color: #4cf3f8;
+}
+.grey {
   background-color: #ddd;
 }
 .red {
@@ -21,6 +27,11 @@ span {
 .right {
   float: right;
 }
+.in-wrap {
+  display: inline-block;
+  border: 1px solid #aaa;
+}
+
 header {
     padding: 10px;
     background-color: #fffcf2;
@@ -155,6 +166,21 @@ aside a:active {
 
 }
 
+.btn-search {
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 0 0 35px;
+  cursor: pointer;
+  background-color: #fbb;
+  /*color: #555;*/
+}
+.btn-search:hover {
+  background-color: #faa;
+}
 section {
     width: 82%;
     /*height: 76%;*/
@@ -208,6 +234,21 @@ section.single-section {
     background-color:#FFE6CC;
     /*float: left;*/
 }
+.divmin-center {
+  min-width: 400px;
+  width: 55%;
+  margin: 10px auto;
+  border: none;
+  border-radius: 10px;
+  background-color:#FFE6CC;
+}
+.div-center {
+  clear: both;
+  width: 35%;
+  /*height: 160px;*/
+  border: 1px solid #eee;
+  margin: 10px auto;
+}
 .divmin .odd {
   clear: left;
   float: left;
@@ -219,7 +260,7 @@ section.single-section {
     padding: 10px;
     margin: 0;
 }
-.divmin input[type="text"] {
+.divmin input[type="text"],.divmin-center input[type="text"] {
     text-align: left;
     padding: 8px 4px;
     margin: 12px;
