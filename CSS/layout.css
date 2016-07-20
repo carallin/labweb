@@ -181,6 +181,9 @@ aside a:active {
 .btn-search:hover {
   background-color: #faa;
 }
+.btn-search:active {
+  background-color: #f88;
+}
 section {
     width: 82%;
     /*height: 76%;*/
